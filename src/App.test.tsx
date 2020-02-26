@@ -1,9 +1,9 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { waitForElement } from '@testing-library/react';
+import { render } from 'utils/test';
 import App from './App';
 
-test('renders learn react link', () => {
+test('renders learn react link', async () => {
   const { getByText } = render(<App />);
-  const linkElement = getByText(/Riddle me this/i);
-  expect(linkElement).toBeInTheDocument();
+  await waitForElement(() => getByText(/Riddle me this/i));
 });
