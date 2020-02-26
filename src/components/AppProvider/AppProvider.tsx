@@ -5,11 +5,11 @@ import { firebaseConfig } from 'utils/firebase';
 
 const AppProvider: React.FC = ({ children }) => {
   return (
-    <ThemeDecorator>
-      <FirebaseAppProvider firebaseConfig={firebaseConfig}>
+    <FirebaseAppProvider firebaseConfig={firebaseConfig}>
+      <ThemeDecorator>
         <Suspense fallback={<p>loading status...</p>}>{children}</Suspense>
-      </FirebaseAppProvider>
-    </ThemeDecorator>
+      </ThemeDecorator>
+    </FirebaseAppProvider>
   );
 };
 
