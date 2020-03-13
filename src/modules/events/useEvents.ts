@@ -12,7 +12,10 @@ const useEvents = () => {
     const creationDate = new Date();
     return await eventsRef.add({ ...eventData, creationDate });
   };
-  return { events, addEvent };
+  const removeEvent = async (id: string) => {
+    return await eventsRef.doc(id).delete();
+  };
+  return { events, addEvent, removeEvent };
 };
 
 export default useEvents;
