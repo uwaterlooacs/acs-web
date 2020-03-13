@@ -9,3 +9,18 @@ script:
 - yarn lint
 - yarn test
 - yarn run build
+deploy:
+  - provider: firebase
+    token:
+      secure: VIHNXeY2VGLpzpzVlLRXj/wcxdD/WN4vlceRsC+NImq0f+sW06AGsPszeDmaRAdVcBZhDHf8fNxnmUD1rvb6K98sHPuQ+MCHwHj9YDAZl6YcV5QiYWtaNTiMkDYUzsIRc791SdPbDdOCIabYN8e7bH1DAvixuVXXonrSJREyBoPmgO84NiZH2uR72OZgXbEhOL27YJuALSw04/KlkCi4/YqKN8QfpNILk0cH94nhIZqzI6Fp/mbt565SWWmoQ3n1yAuED7QLnRK1FLmT5nuLHtzF6kgcIjaifJWGgpOCQ4h6Iz4jQamN2YhJaKB5Ygu9IRhmqPD8lgA619ez/iFUO95cODtC8Olb4TM/HjH21xudmYrB73Pvd0b0Nm51yoDCZ+xE/5gN8NI5UN8QhFPVIrPCMWoq1RHCh5+/dC78MZmA8fFVmHx64SMVpON4KDDXO06QCNKq2ThquqBM7pTIZnqLqcKeXO9vJXfWcRILByqUCxxV8woO6DbAacEGOjlwRUNpKhOyGHrG5Yc42fXy7LLYl1Q1chsEQfKVhOShg58SwbcSAPzxbxpga0ZCOckXyEqYiv3U/wJhwAH8kfYFGUVW3MYVBaVvQlpRc2et2fBuIj11xiG5r2dlZLIPWfQAAjp+hf2W3w/0xXLtJ0o9RCj/FuwEI3/+FMJxxfdmMCo=
+    edge: true
+    only: hosting:dev
+    on:
+      branch: dev
+  - provider: firebase
+    token:
+      secure: VIHNXeY2VGLpzpzVlLRXj/wcxdD/WN4vlceRsC+NImq0f+sW06AGsPszeDmaRAdVcBZhDHf8fNxnmUD1rvb6K98sHPuQ+MCHwHj9YDAZl6YcV5QiYWtaNTiMkDYUzsIRc791SdPbDdOCIabYN8e7bH1DAvixuVXXonrSJREyBoPmgO84NiZH2uR72OZgXbEhOL27YJuALSw04/KlkCi4/YqKN8QfpNILk0cH94nhIZqzI6Fp/mbt565SWWmoQ3n1yAuED7QLnRK1FLmT5nuLHtzF6kgcIjaifJWGgpOCQ4h6Iz4jQamN2YhJaKB5Ygu9IRhmqPD8lgA619ez/iFUO95cODtC8Olb4TM/HjH21xudmYrB73Pvd0b0Nm51yoDCZ+xE/5gN8NI5UN8QhFPVIrPCMWoq1RHCh5+/dC78MZmA8fFVmHx64SMVpON4KDDXO06QCNKq2ThquqBM7pTIZnqLqcKeXO9vJXfWcRILByqUCxxV8woO6DbAacEGOjlwRUNpKhOyGHrG5Yc42fXy7LLYl1Q1chsEQfKVhOShg58SwbcSAPzxbxpga0ZCOckXyEqYiv3U/wJhwAH8kfYFGUVW3MYVBaVvQlpRc2et2fBuIj11xiG5r2dlZLIPWfQAAjp+hf2W3w/0xXLtJ0o9RCj/FuwEI3/+FMJxxfdmMCo=
+    edge: true
+    only: hosting:prod
+    on:
+      branch: master

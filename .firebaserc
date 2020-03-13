@@ -1,5 +1,17 @@
 {
   "projects": {
     "default": "acs-web-5aaaf"
+  },
+  "targets": {
+    "acs-web-5aaaf": {
+      "hosting": {
+        "prod": [
+          "acs-web-5aaaf"
+        ],
+        "dev": [
+          "dev-lit-acsweb"
+        ]
+      }
+    }
   }
 }
