@@ -3,7 +3,9 @@ import { waitForElement } from '@testing-library/react';
 import { render } from 'utils/test';
 import App from './App';
 
-test('renders without exploding :(', async () => {
+test('renders without exploding :(', async done => {
   const { getByText } = render(<App />);
   await waitForElement(() => getByText(/List of events/i));
+
+  done();
 });
