@@ -2,7 +2,8 @@
   "database": {
     "rules": "database.rules.json"
   },
-  "hosting": {
+  "hosting": [{
+    "target": "dev",
     "public": "build",
     "ignore": [
       "firebase.json",
@@ -15,5 +16,19 @@
         "destination": "/index.html"
       }
     ]
-  }
+  }, {
+    "target": "prod",
+    "public": "build",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }]
 }
