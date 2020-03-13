@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useEvents } from 'modules/events';
 
-const AddEvents = () => {
+const AddEventsForm = () => {
   const { addEvent } = useEvents();
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
@@ -42,4 +42,4 @@ const AddEvents = () => {
   );
 };
 
-export default AddEvents;
+export default AddEventsForm;
