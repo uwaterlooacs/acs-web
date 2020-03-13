@@ -8,9 +8,11 @@ describe('useEvents', () => {
     firebase.initializeTestApp(firebaseConfig);
   });
 
-  it('should return an array of events and utility methods', async () => {
+  it('should return an array of events and utility methods', async done => {
     const { result, waitForNextUpdate } = renderHook(useEvents);
     await waitForNextUpdate();
     expect(Array.isArray(result.current.events)).toBeTruthy();
+
+    done();
   });
 });
