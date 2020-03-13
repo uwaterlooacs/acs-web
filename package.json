@@ -38,7 +38,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --passWithNoTests",
     "eject": "react-scripts eject",
     "lint": "concurrently \"tsc --noEmit\" \"eslint 'src/**/*.{js,ts,tsx}' --quiet --fix\"",
     "storybook": "start-storybook -p 9009 -s public",
