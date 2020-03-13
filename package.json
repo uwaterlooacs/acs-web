@@ -42,7 +42,9 @@
     "eject": "react-scripts eject",
     "lint": "concurrently \"tsc --noEmit\" \"eslint 'src/**/*.{js,ts,tsx}' --quiet --fix\"",
     "storybook": "start-storybook -p 9009 -s public",
-    "build-storybook": "build-storybook -s public"
+    "build-storybook": "build-storybook -s public",
+    "predeploy": "yarn build",
+    "deploy": "firebase deploy"
   },
   "eslintConfig": {
     "extends": "react-app"
