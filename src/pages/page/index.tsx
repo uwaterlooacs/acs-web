@@ -12,10 +12,10 @@ const Page: React.FC = ({ children }) => {
               <Link to="/">Home</Link>
             </li>
             <li>
-              <Link to="/auth">Sign up / Sign in</Link>
+              <Link to="/auth">Auth</Link>
             </li>
             <li>
-              <Link to="/events">Add Events</Link>
+              <Link to="/events">Events</Link>
             </li>
             <li>
               <Link to="/vote">Vote</Link>
