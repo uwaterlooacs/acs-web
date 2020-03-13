@@ -10,12 +10,12 @@ breakpoints.xl = breakpoints[3];
 
 //--> Colors
 const colors = {
-  'black': '#000e1a',
-  'grey': '#e5e5e5',
-  'white': '#fff',
+  black: '#000e1a',
+  grey: '#e5e5e5',
+  white: '#fff',
   'white/transparent': '#fffb',
-  'primary': '#cf3737',
-  'secondary': '#50a6d7',
+  primary: '#cf3737',
+  secondary: '#50a6d7',
 };
 
 //--> Space
