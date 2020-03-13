@@ -1,7 +1,8 @@
 import React from 'react';
+import Page from 'pages/page';
 
 const Auth = () => {
-  return <div></div>;
+  return <Page></Page>;
 };
 
 export default Auth;
