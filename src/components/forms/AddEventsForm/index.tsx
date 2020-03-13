@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { useEvents } from 'modules/events';
+import { Event, EventData } from 'modules/events/types';
+import { useData } from 'modules/data';
 
 const AddEventsForm = () => {
-  const { addEvent } = useEvents();
+  const { addData } = useData<Event, EventData>('events');
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [start, setStart] = useState('');
@@ -10,7 +11,7 @@ const AddEventsForm = () => {
   const images: string[] = [];
   const attendees: string[] = [];
   const createEvent = () => {
-    addEvent({
+    addData({
       title,
       description,
       start: new Date(start),
