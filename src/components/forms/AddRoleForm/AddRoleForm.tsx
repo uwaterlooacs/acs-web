@@ -1,39 +1,46 @@
 import React, { useState } from 'react';
 import Box from 'components/Box';
-// import { Term, TermData } from 'modules/terms';
-// import { useCollectionData } from 'modules/data';
-// import { TERMS } from 'utils/collectionNames';
+import AddNomineeForm from 'components/forms/AddNomineeForm';
+import AddWinnerForm from 'components/forms/AddWinnerForm';
+import { Role, RoleData } from 'modules/events/types';
+import { useCollectionData } from 'modules/data';
 
-const AddTermForm = () => {
-  // const { addDoc } = useCollectionData<Term, TermData>(TERMS);
+const AddRoleForm = () => {
+  const { addDoc } = useCollectionData<Role, RoleData>('events');
   const [title, setTitle] = useState('');
-  const [description, setDescription] = useState('');
   const [isOpen, setIsOpen] = useState(true);
+  const [nominees, setNominees] = useState([]);
+  const [winners, setWinners] = useState([]);
   return (
     <Box style={{ margin: 20 }}>
       <h1>Add role</h1>
       <Box>
         <h3>Title</h3>
         <input value={title} onChange={e => setTitle(e.target.value)}></input>
-        <h3>Description</h3>
-        <input
-          value={description}
-          onChange={e => setDescription(e.target.value)}
-        ></input>
-        <Box style={{ display: 'flex', flexDirection: 'row' }}>
-          <h3>isOpen: </h3>
-          <h3>{isOpen.toString()}</h3>
-        </Box>
+        <h3>isOpen</h3>
+        <p>{isOpen}</p>
         <Box style={{ flexDirection: 'row' }}>
           <button onClick={() => setIsOpen(true)}>Open</button>
           <button onClick={() => setIsOpen(false)}>Closed</button>
         </Box>
+        <AddNomineeForm setNominees={setNominees}></AddNomineeForm>
+        <AddWinnerForm setWinners={setWinners}></AddWinnerForm>
       </Box>
       <Box style={{ marginTop: 10 }}>
-        <button>Create Role</button>
+        <button
+          onClick={() =>
+            addDoc({
+              isOpen,
+              nominees,
+              winners,
+            })
+          }
+        >
+          Create Event
+        </button>
       </Box>
     </Box>
   );
 };
 
-export default AddTermForm;
+export default AddRoleForm;
