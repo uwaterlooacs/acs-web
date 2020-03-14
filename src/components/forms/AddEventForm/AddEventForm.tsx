@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Event, EventData } from 'modules/events/types';
-import { useData } from 'modules/data';
+import { useCollectionData } from 'modules/data';
 
-const AddEventsForm = () => {
-  const { addData } = useData<Event, EventData>('events');
+const AddEventForm = () => {
+  const { addDoc } = useCollectionData<Event, EventData>('events');
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [start, setStart] = useState('');
@@ -11,7 +11,7 @@ const AddEventsForm = () => {
   const images: string[] = [];
   const attendees: string[] = [];
   const createEvent = () => {
-    addData({
+    addDoc({
       title,
       description,
       start: new Date(start),
@@ -43,4 +43,4 @@ const AddEventsForm = () => {
   );
 };
 
-export default AddEventsForm;
+export default AddEventForm;

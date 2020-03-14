@@ -1,13 +1,13 @@
 import React from 'react';
 import Page from 'pages/page';
-import AddEventsForm from 'components/forms/AddEventsForm';
+import AddEventForm from 'components/forms/AddEventForm';
 import EventsList from 'components/EventsList';
 
 const Events = () => {
   return (
     <Page>
       <EventsList></EventsList>
-      <AddEventsForm></AddEventsForm>
+      <AddEventForm></AddEventForm>
     </Page>
   );
 };
