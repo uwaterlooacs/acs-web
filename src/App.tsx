@@ -5,6 +5,7 @@ import Home from 'pages/home';
 import Events from 'pages/events';
 import Auth from 'pages/auth';
 import Vote from 'pages/vote';
+import Admin from 'pages/admin';
 
 const App = () => {
   return (
@@ -19,6 +20,9 @@ const App = () => {
           </Route>
           <Route path="/vote">
             <Vote />
+          </Route>
+          <Route path="/admin">
+            <Admin />
           </Route>
           <Route path="/">
             <Home />
