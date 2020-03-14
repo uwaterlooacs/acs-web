@@ -2,6 +2,7 @@ import { Nominee } from 'modules/nominees';
 
 export type RoleData = {
   title: string;
+  description: string;
   isOpen: boolean;
   winners: string[];
   nominees: Nominee[];
