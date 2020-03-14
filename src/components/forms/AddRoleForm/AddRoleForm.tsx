@@ -20,8 +20,8 @@ const AddRoleForm = () => {
           onChange={e => setDescription(e.target.value)}
         ></input>
         <Box style={{ display: 'flex', flexDirection: 'row' }}>
-          <p>isOpen: </p>
-          <p>{isOpen.toString()}</p>
+          <h3>isOpen: </h3>
+          <h3>{isOpen.toString()}</h3>
         </Box>
         <Box style={{ flexDirection: 'row' }}>
           <button onClick={() => setIsOpen(true)}>Open</button>
