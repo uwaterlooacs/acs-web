@@ -1,42 +1,40 @@
 import React, { useState } from 'react';
 import Box from 'components/Box';
-import AddNomineeForm from 'components/forms/AddNomineeForm';
-import AddWinnerForm from 'components/forms/AddWinnerForm';
-import { Role, RoleData } from 'modules/events/types';
+import { Role, RoleData } from 'modules/roles/types';
 import { useCollectionData } from 'modules/data';
 
 const AddRoleForm = () => {
-  const { addDoc } = useCollectionData<Role, RoleData>('events');
+  const { addDoc } = useCollectionData<Role, RoleData>('roles');
   const [title, setTitle] = useState('');
+  const [description, setDescription] = useState('');
   const [isOpen, setIsOpen] = useState(true);
-  const [nominees, setNominees] = useState([]);
-  const [winners, setWinners] = useState([]);
   return (
     <Box style={{ margin: 20 }}>
       <h1>Add role</h1>
       <Box>
         <h3>Title</h3>
         <input value={title} onChange={e => setTitle(e.target.value)}></input>
-        <h3>isOpen</h3>
-        <p>{isOpen}</p>
+        <h3>Description</h3>
+        <input
+          value={description}
+          onChange={e => setDescription(e.target.value)}
+        ></input>
+        <Box style={{ display: 'flex', flexDirection: 'row' }}>
+          <p>isOpen: </p>
+          <p>{isOpen.toString()}</p>
+        </Box>
         <Box style={{ flexDirection: 'row' }}>
           <button onClick={() => setIsOpen(true)}>Open</button>
           <button onClick={() => setIsOpen(false)}>Closed</button>
         </Box>
-        <AddNomineeForm setNominees={setNominees}></AddNomineeForm>
-        <AddWinnerForm setWinners={setWinners}></AddWinnerForm>
       </Box>
       <Box style={{ marginTop: 10 }}>
         <button
           onClick={() =>
-            addDoc({
-              isOpen,
-              nominees,
-              winners,
-            })
+            addDoc({ title, description, isOpen, nominees: [], winners: [] })
           }
         >
-          Create Event
+          Create Role
         </button>
       </Box>
     </Box>
