@@ -1,6 +1,6 @@
 import { useFirestore, useFirestoreCollectionData } from 'reactfire';
 
-const useData = <T, D>(COLLECTION_NAME: string) => {
+const useCollectionData = <T, D>(COLLECTION_NAME: string) => {
   const dataRef = useFirestore().collection(COLLECTION_NAME);
   const data = useFirestoreCollectionData<T>(dataRef, {
     idField: 'id',
