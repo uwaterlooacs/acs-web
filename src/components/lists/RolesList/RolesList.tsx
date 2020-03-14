@@ -2,9 +2,13 @@ import React from 'react';
 import Box from 'components/Box';
 import { Term, TermData } from 'modules/terms';
 import { useCollectionData } from 'modules/data';
+<<<<<<< HEAD
 import userDataList from 'mocks/userDataList';
 import RoleView from 'components/views/RoleView';
 import { TERMS } from 'utils/collectionNames';
+=======
+import { userDataList } from 'mocks/userDataList';
+>>>>>>> votes page WIP | created mock list of users
 
 const RolesList = () => {
   const { data } = useCollectionData<Term, TermData>(TERMS);
