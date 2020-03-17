@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import Box from 'components/Box';
-import { Role, RoleData } from 'modules/roles/types';
-import { useCollectionData } from 'modules/data';
-import { ROLES } from 'utils/collectionNames';
+// import { Term, TermData } from 'modules/terms';
+// import { useCollectionData } from 'modules/data';
+// import { TERMS } from 'utils/collectionNames';
 
-const AddRoleForm = () => {
-  const { addDoc } = useCollectionData<Role, RoleData>(ROLES);
+const AddTermForm = () => {
+  // const { addDoc } = useCollectionData<Term, TermData>(TERMS);
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [isOpen, setIsOpen] = useState(true);
@@ -30,16 +30,10 @@ const AddRoleForm = () => {
         </Box>
       </Box>
       <Box style={{ marginTop: 10 }}>
-        <button
-          onClick={() =>
-            addDoc({ title, description, isOpen, nominees: [], winners: [] })
-          }
-        >
-          Create Role
-        </button>
+        <button>Create Role</button>
       </Box>
     </Box>
   );
 };
 
-export default AddRoleForm;
+export default AddTermForm;

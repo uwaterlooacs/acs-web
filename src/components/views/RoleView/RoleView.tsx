@@ -1,14 +1,19 @@
 import React, { useState } from 'react';
 import Box from 'components/Box';
-import { Role, RoleData } from 'modules/roles/types';
-import { UserData } from 'modules/users/types';
+import UserView from 'components/views/UserView';
+import { Role } from 'modules/roles';
+import { Term, TermData } from 'modules/terms';
+import { User } from 'modules/users/types';
 import { useCollectionData } from 'modules/data';
-import { ROLES } from 'utils/collectionNames';
+import { TERMS } from 'utils/collectionNames';
 
 const RoleView = (props: RoleViewProps) => {
-  const { role, users } = props;
-  const { removeDoc } = useCollectionData<Role, RoleData>(ROLES);
-  const [remainingUsers, setRemainingUsers] = useState([]);
+  const { role, users, isNominationsOpen, isVotingOpen } = props;
+  const { removeDoc } = useCollectionData<Term, TermData>(TERMS);
+  const [remainingUsers, setRemainingUsers] = useState(users);
+  const nominate = (user: User) => {
+    console.log(user);
+  };
   return (
     <Box>
       <Box style={{ display: 'flex', flexDirection: 'row' }}>
@@ -20,19 +25,29 @@ const RoleView = (props: RoleViewProps) => {
           Delete
         </button>
       </Box>
-      {/* {nominationsOpen && (
+      {isNominationsOpen &&
+        remainingUsers.map(user => (
+          <li key={user.email}>
+            <Box style={{ display: 'flex', flexDirection: 'row' }}>
+              <UserView user={user}></UserView>
+              <button onClick={() => nominate(user)}>Nominate</button>
+            </Box>
+          </li>
+        ))}
+      {isVotingOpen && (
         <Box>
-          <h3>Nominate someone:</h3>
-          <input></input>
+          <Box></Box>
         </Box>
-      )} */}
+      )}
     </Box>
   );
 };
 
 type RoleViewProps = {
   role: Role;
-  users: UserData[];
+  users: User[];
+  isNominationsOpen: boolean;
+  isVotingOpen: boolean;
 };
 
 export default RoleView;

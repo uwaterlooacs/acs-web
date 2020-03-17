@@ -1,8 +1,11 @@
+import { Role } from 'modules/roles';
+
 export type TermData = {
   season: string;
-  year: string;
+  year: number;
   isNominationsOpen: boolean;
   isVotingOpen: boolean;
+  roles: Role[];
 };
 
 export type TermMetaData = {
@@ -10,4 +13,4 @@ export type TermMetaData = {
   creationTime: Date;
 };
 
-export type Role = TermData & TermMetaData;
+export type Term = TermData & TermMetaData;
