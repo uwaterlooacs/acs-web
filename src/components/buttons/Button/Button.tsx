@@ -10,6 +10,7 @@ export const Button = styled(UnstyledButton)<ButtonProps>(
     borderRadius: 4,
     border: '1px solid',
     color: 'primary',
+    p: 2,
     '&:hover, &:focus': {
       color: 'white',
       backgroundColor: 'primary',
