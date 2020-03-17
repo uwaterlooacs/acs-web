@@ -1,13 +1,13 @@
 import React from 'react';
 import Page from 'pages/page';
 import Box from 'components/Box';
-import AddRoleForm from 'components/forms/AddRoleForm';
+import AddTermForm from 'components/forms/AddTermForm';
 
 const Admin = () => {
   return (
     <Page>
       <Box>
-        <AddRoleForm></AddRoleForm>
+        <AddTermForm></AddTermForm>
       </Box>
     </Page>
   );
