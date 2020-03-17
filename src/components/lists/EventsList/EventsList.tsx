@@ -2,9 +2,10 @@ import React from 'react';
 import Box from 'components/Box';
 import { Event, EventData } from 'modules/events/types';
 import { useCollectionData } from 'modules/data';
+import { EVENTS } from 'utils/collectionNames';
 
 const EventsList = () => {
-  const { data, removeDoc } = useCollectionData<Event, EventData>('events');
+  const { data, removeDoc } = useCollectionData<Event, EventData>(EVENTS);
   return (
     <Box style={{ margin: 20 }}>
       <h1>List of events</h1>
