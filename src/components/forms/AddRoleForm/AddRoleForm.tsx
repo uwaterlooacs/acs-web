@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import Box from 'components/Box';
 import { Role, RoleData } from 'modules/roles/types';
 import { useCollectionData } from 'modules/data';
+import { ROLES } from 'utils/collectionNames';
 
 const AddRoleForm = () => {
-  const { addDoc } = useCollectionData<Role, RoleData>('roles');
+  const { addDoc } = useCollectionData<Role, RoleData>(ROLES);
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [isOpen, setIsOpen] = useState(true);

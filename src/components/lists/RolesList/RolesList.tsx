@@ -3,6 +3,7 @@ import Box from 'components/Box';
 import { Term, TermData } from 'modules/terms';
 import { useCollectionData } from 'modules/data';
 <<<<<<< HEAD
+<<<<<<< HEAD
 import userDataList from 'mocks/userDataList';
 import RoleView from 'components/views/RoleView';
 import { TERMS } from 'utils/collectionNames';
@@ -13,10 +14,19 @@ import { userDataList } from 'mocks/userDataList';
 const RolesList = () => {
   const { data } = useCollectionData<Term, TermData>(TERMS);
   const currentTerm = data[data.length - 1];
+=======
+import userDataList from 'mocks/userDataList';
+import RoleView from 'components/views/RoleView';
+import { ROLES } from 'utils/collectionNames';
+
+const RolesList = () => {
+  const { data } = useCollectionData<Role, RoleData>(ROLES);
+>>>>>>> Adding terms
   return (
     <Box style={{ margin: 20 }}>
       <h1>List of Roles</h1>
       <ul>
+<<<<<<< HEAD
         {currentTerm &&
           currentTerm.roles &&
           currentTerm.roles.map(role => (
@@ -29,6 +39,13 @@ const RolesList = () => {
               ></RoleView>
             </li>
           ))}
+=======
+        {data.map(role => (
+          <li key={role.id}>
+            <RoleView users={userDataList} role={role}></RoleView>
+          </li>
+        ))}
+>>>>>>> Adding terms
       </ul>
     </Box>
   );
