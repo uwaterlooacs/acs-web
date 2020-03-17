@@ -1,16 +1,16 @@
 import React from 'react';
 import Page from 'pages/page';
 import Box from 'components/Box';
-import RolesList from 'components/lists/RolesList';
+import AddRoleForm from 'components/forms/AddRoleForm';
 
-const Vote = () => {
+const Admin = () => {
   return (
     <Page>
       <Box>
-        <RolesList></RolesList>
+        <AddRoleForm></AddRoleForm>
       </Box>
     </Page>
   );
 };
 
-export default Vote;
+export default Admin;

@@ -1,4 +1,4 @@
 export type Nominee = {
-  id: string;
+  userId: string;
   votes: number;
 };
