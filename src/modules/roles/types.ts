@@ -1,10 +1,11 @@
 import { Nominee } from 'modules/nominees';
-import { Winner } from 'modules/winners';
 
 export type RoleData = {
+  title: string;
+  description: string;
   isOpen: boolean;
+  winners: string[];
   nominees: Nominee[];
-  winners: Winner[];
 };
 
 export type RoleMetaData = {

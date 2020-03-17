@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { Event, EventData } from 'modules/events/types';
 import { useCollectionData } from 'modules/data';
+import { EVENTS } from 'utils/collectionNames';
 
 const AddEventForm = () => {
-  const { addDoc } = useCollectionData<Event, EventData>('events');
+  const { addDoc } = useCollectionData<Event, EventData>(EVENTS);
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [start, setStart] = useState('');

@@ -20,6 +20,9 @@ const Page: React.FC = ({ children }) => {
             <li>
               <Link to="/vote">Vote</Link>
             </li>
+            <li>
+              <Link to="/admin">Admin</Link>
+            </li>
           </ul>
         </nav>
       </Box>
