@@ -10,6 +10,16 @@ const AddTermForm = () => {
   const [year, setYear] = useState(new Date().getFullYear());
   const roles: Role[] = [];
 
+  const createTerm = () => {
+    addDoc({
+      season,
+      year,
+      roles,
+      isNominationsOpen: false,
+      isVotingOpen: false,
+    });
+  };
+
   return (
     <div style={{ margin: 16 }}>
       <h1>Add term</h1>
@@ -24,19 +34,7 @@ const AddTermForm = () => {
         ></input>
       </div>
       <div style={{ marginTop: 16 }}>
-        <button
-          onClick={() =>
-            addDoc({
-              season,
-              year,
-              roles,
-              isNominationsOpen: false,
-              isVotingOpen: false,
-            })
-          }
-        >
-          Create Term
-        </button>
+        <button onClick={createTerm}>Create Term</button>
       </div>
     </div>
   );
