@@ -4,7 +4,7 @@ import AddRoleForm from 'components/forms/AddRoleForm';
 
 const AddRole = () => {
   return (
-    <Box style={{ display: 'flex', flexDirection: 'row' }}>
+    <Box>
       <AddRoleForm></AddRoleForm>
     </Box>
   );

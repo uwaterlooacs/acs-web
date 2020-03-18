@@ -4,7 +4,7 @@ import AddTermForm from 'components/forms/AddTermForm';
 
 const AddTerm = () => {
   return (
-    <Box style={{ display: 'flex', flexDirection: 'row' }}>
+    <Box>
       <AddTermForm></AddTermForm>
     </Box>
   );
