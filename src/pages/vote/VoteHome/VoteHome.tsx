@@ -1,5 +1,6 @@
 import React from 'react';
 import { useAuth } from 'reactfire';
+import { Redirect } from 'react-router-dom';
 import Box from 'components/Box';
 import SignIn from 'components/SignIn';
 import Button from 'components/buttons/Button';
@@ -8,7 +9,11 @@ import { useUser } from 'modules/users';
 
 const VoteHome = () => {
   const auth = useAuth();
-  const { isLoggedIn } = useUser();
+  const { isLoggedIn, isSignUpComplete } = useUser();
+
+  if (isLoggedIn && !isSignUpComplete) {
+    return <Redirect to="/vote/completesignup" />;
+  }
 
   return (
     <Box>

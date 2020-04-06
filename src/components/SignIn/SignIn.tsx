@@ -9,14 +9,7 @@ const SignIn = () => {
   const auth = useAuth();
   const { isLoggedIn } = useUser();
 
-  const uiConfig = useMemo(
-    () =>
-      createUIConfig(({ user }) => {
-        console.log(user);
-        return false;
-      }),
-    [],
-  );
+  const uiConfig = useMemo(() => createUIConfig('/vote/completesignup'), []);
 
   return (
     <Box>

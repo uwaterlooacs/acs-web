@@ -16,13 +16,9 @@ const uiConfig = {
   ],
 };
 
-type AuthCallback = (result: { user: firebase.User }) => boolean;
-
-export const createUIConfig = (signInSuccessWithAuthResult: AuthCallback) => {
+export const createUIConfig = (signInSuccessUrl: string) => {
   return {
     ...uiConfig,
-    callbacks: {
-      signInSuccessWithAuthResult,
-    },
+    signInSuccessUrl,
   };
 };
