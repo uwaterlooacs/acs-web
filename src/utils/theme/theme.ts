@@ -20,7 +20,17 @@ const colors = {
 };
 
 //--> Space
-const space = [0, 4, 8, 16, 32, 64, 128, 256, 512];
+const space: any = [0, 4, 8, 16, 32, 64, 128, 256, 512];
+
+// aliases
+space.NONE = space[0];
+space.XS = space[1];
+space.S = space[2];
+space.M = space[3];
+space.L = space[4];
+space.XL = space[5];
+space.XXL = space[6];
+space.XXXL = space[7];
 
 //--> FontSizes
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -33,7 +43,7 @@ fontSizes.S = fontSizes[2];
 fontSizes.M = fontSizes[3];
 fontSizes.L = fontSizes[4];
 fontSizes.XL = fontSizes[5];
-fontSizes.XXL = fontSizes[5];
+fontSizes.XXL = fontSizes[6];
 
 //--> LineHeight
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -50,12 +60,13 @@ const lineHeights: any = [
 ];
 
 // aliases
-lineHeights.S = lineHeights[0];
-lineHeights.M = lineHeights[1];
-lineHeights.HS = lineHeights[2];
-lineHeights.HM = lineHeights[3];
-lineHeights.HL = lineHeights[4];
-lineHeights.HXL = lineHeights[5];
+lineHeights.XXS = lineHeights[0];
+lineHeights.XS = lineHeights[1];
+lineHeights.S = lineHeights[2];
+lineHeights.M = lineHeights[3];
+lineHeights.L = lineHeights[4];
+lineHeights.XL = lineHeights[5];
+lineHeights.XXL = lineHeights[5];
 
 //--> Shadows
 const shadows = {
