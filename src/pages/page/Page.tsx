@@ -1,32 +1,15 @@
 import React from 'react';
 import Box from 'components/Box';
-import { Link } from 'react-router-dom';
+import Centered from 'components/utils/Centered';
+import logo from './acs-logo-color-title.jpg';
 
 const Page: React.FC = ({ children }) => {
   return (
     <Box>
-      <Box>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/auth">Auth</Link>
-            </li>
-            <li>
-              <Link to="/events">Events</Link>
-            </li>
-            <li>
-              <Link to="/vote">Vote</Link>
-            </li>
-            <li>
-              <Link to="/admin">Admin</Link>
-            </li>
-          </ul>
-        </nav>
-      </Box>
-      <Box>{children}</Box>
+      <Centered mt={5}>
+        <img src={logo} alt="UW ACS logo" />
+      </Centered>
+      {children}
     </Box>
   );
 };
