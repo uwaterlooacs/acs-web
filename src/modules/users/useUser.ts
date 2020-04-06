@@ -50,7 +50,14 @@ const useUser = () => {
     });
   };
 
-  return { user, setUser, isLoggedIn, isSignUpComplete, completeSignUp };
+  return {
+    firebaseUser,
+    user,
+    setUser,
+    isLoggedIn,
+    isSignUpComplete,
+    completeSignUp,
+  };
 };
 
 export default useUser;
