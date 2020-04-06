@@ -7,16 +7,10 @@ export type ExternalUserData = {
 export type InternalUserData = {
   studentNumber: number;
   faculty: string;
+  waterlooEmail: string;
 };
 
-export type NewUserData = ExternalUserData & InternalUserData;
-export type NewUser = UserData & UserMetaData;
-
-export type ExtraUserData = {
-  isMember: boolean;
-};
-
-export type UserData = ExternalUserData & InternalUserData & ExtraUserData;
+export type UserData = ExternalUserData & InternalUserData;
 
 export type UserMetaData = {
   id: string;

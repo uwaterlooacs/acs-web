@@ -1,2 +1,2 @@
-export { default } from './useUsers';
+export { default as useUser } from './useUser';
 export * from './types';
