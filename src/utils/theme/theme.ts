@@ -11,10 +11,11 @@ breakpoints.xl = breakpoints[3];
 //--> Colors
 const colors = {
   black: '#000e1a',
-  grey: '#e5e5e5',
+  grey: '#434343',
+  lightgrey: '#a1a1a1',
   white: '#fff',
   'white/transparent': '#fffb',
-  primary: '#cf3737',
+  primary: '#ed3330',
   secondary: '#50a6d7',
 };
 
@@ -59,8 +60,7 @@ lineHeights.HXL = lineHeights[5];
 //--> Shadows
 const shadows = {
   light: '0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)',
-  medium: '0px 4px 4px rgba(0, 0, 0, 0.25)',
-  'medium/secondary': '0px 4px 4px #50a6d7',
+  medium: '5px 40px -10px rgba(0, 0, 0, 0.57)',
   heavy: '0px 4px 8px rgba(0, 0, 0, 0.45)',
 };
 

@@ -1,22 +1,21 @@
 import React from 'react';
+import Centered from 'components/utils/Centered';
 import Button from './Button';
-
-export const MOCK_TEXT = {
-  base: 'Button',
-  primary: 'Primary',
-  secondary: 'Secondary',
-};
 
 export default { title: 'Buttons|Button', excludeStories: /mock.*/i };
 
 export const Base = () => {
-  return <Button>{MOCK_TEXT.base}</Button>;
+  return (
+    <Centered>
+      <Button>Button</Button>
+    </Centered>
+  );
 };
 
-// export const Primary = () => {
-//   return <Button variant="primary">{MOCK_TEXT.primary}</Button>;
-// };
-
-// export const Secondary = () => {
-//   return <Button variant="secondary">{MOCK_TEXT.secondary}</Button>;
-// };
+export const Disabled = () => {
+  return (
+    <Centered>
+      <Button disabled>Disabled button</Button>
+    </Centered>
+  );
+};
