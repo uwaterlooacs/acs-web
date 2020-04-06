@@ -13,7 +13,6 @@
     "react-i18next": "^11.2.7",
     "react-router-dom": "^5.1.2",
     "react-scripts": "^3.4.1",
-    "react-select": "^3.0.8",
     "reactfire": "^2.0.3",
     "styled-components": "^4.4.1",
     "styled-system": "^5.1.4"
