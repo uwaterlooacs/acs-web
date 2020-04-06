@@ -26,12 +26,13 @@ const space = [0, 4, 8, 16, 32, 64, 128, 256, 512];
 const fontSizes: any = [12, 14, 16, 18, 20, 24, 32, 48, 72];
 
 // aliases
-fontSizes.S = fontSizes[0];
-fontSizes.M = fontSizes[1];
-fontSizes.HS = fontSizes[2];
-fontSizes.HM = fontSizes[3];
-fontSizes.HL = fontSizes[4];
-fontSizes.HXL = fontSizes[5];
+fontSizes.XXS = fontSizes[0];
+fontSizes.XS = fontSizes[1];
+fontSizes.S = fontSizes[2];
+fontSizes.M = fontSizes[3];
+fontSizes.L = fontSizes[4];
+fontSizes.XL = fontSizes[5];
+fontSizes.XXL = fontSizes[5];
 
 //--> LineHeight
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
