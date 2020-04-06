@@ -11,3 +11,11 @@ export const Base = () => {
     </Centered>
   );
 };
+
+export const Error = () => {
+  return (
+    <Centered>
+      <Input width={200} type="text" error />
+    </Centered>
+  );
+};

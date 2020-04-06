@@ -1,44 +1,27 @@
-import styled, { StyledComponentProps } from 'styled-components/macro';
+import styled from 'styled-components/macro';
 import {
   space,
-  SpaceProps,
   layout,
-  LayoutProps,
   color,
-  ColorProps,
   typography,
-  TypographyProps,
   border,
-  BorderProps,
   shadow,
-  ShadowProps,
+  compose,
 } from 'styled-system';
+import { InputProps } from './types';
 
-type InputProps = StyledComponentProps<
-  'input',
-  any,
-  SpaceProps &
-    LayoutProps &
-    ColorProps &
-    TypographyProps &
-    BorderProps &
-    ShadowProps,
-  never
->;
-const Input = styled.input<InputProps>`
-  font-size: ${({ theme }) => theme.fontSizes.S}px;
-  line-height: ${({ theme }) => theme.lineHeights.M};
+const Input = styled.input<InputProps>(
+  ({ theme, error }) => `
+  font-size: ${theme.fontSizes.S}px;
+  line-height: ${theme.lineHeights.M};
   width: 100%;
-  padding: ${({ theme }) => `3px ${theme.space.S}px`};
+  padding: 3px ${theme.space.S}px;
   border-radius: 4px;
-  border: 1px solid ${({ theme }) => theme.colors.lightgrey};
+  border: 1px solid ${error ? theme.colors.error : theme.colors.lightgrey};
+  background-color: ${error ? theme.colors.lighterror : 'none'};
   box-shadow: inset 0 1px 2px rgba(27,31,35,.075);
-  ${space}
-  ${layout}
-  ${color}
-  ${typography}
-  ${border}
-  ${shadow}
-`;
+`,
+  compose(space, layout, color, typography, border, shadow),
+);
 
 export default Input;

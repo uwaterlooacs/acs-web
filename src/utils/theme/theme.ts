@@ -17,6 +17,9 @@ const colors = {
   'white/transparent': '#fffb',
   primary: '#ed3330',
   secondary: '#50a6d7',
+  // error colors
+  error: '#ff9494',
+  lighterror: '#fff5f5',
 };
 
 //--> Space
