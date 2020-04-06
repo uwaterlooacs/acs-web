@@ -29,6 +29,12 @@ code {
     font-size: inherit; /* 1 */
     line-height: 1.15; /* 1 */
     margin: 0; /* 2 */
+  }
+
+  button,
+  optgroup,
+  select,
+  textarea {
     cursor: pointer;
   }
 
