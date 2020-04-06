@@ -12,9 +12,6 @@ const VoteHome = () => {
 
   return (
     <Box>
-      <Box mt={4} fontSize="XL" textAlign="center" fontWeight="bolder">
-        Voting
-      </Box>
       <Box mt={2} p={3} m="0 auto" maxWidth={600}>
         <p>
           We&apos;re currently accepting submission for the following positions:
