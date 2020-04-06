@@ -26,7 +26,7 @@ type InputProps = StyledComponentProps<
   never
 >;
 const Input = styled.input<InputProps>`
-  font-size: ${({ theme }) => theme.lineHeights.M};
+  font-size: ${({ theme }) => theme.fontSizes.S}px;
   line-height: ${({ theme }) => theme.lineHeights.M};
   width: 100%;
   padding: ${({ theme }) => `3px ${theme.space.S}px`};
