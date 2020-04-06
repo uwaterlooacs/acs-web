@@ -8,20 +8,15 @@ import {
   ShadowProps,
 } from 'styled-system';
 
-type StyledSystemInputProps = SpaceProps &
+type StyledSystemProps = SpaceProps &
   LayoutProps &
   ColorProps &
   TypographyProps &
   BorderProps &
   ShadowProps;
 
-type OtherInputProps = {
+type OtherProps = {
   error?: boolean;
 };
 
-export type InputProps = StyledComponentProps<
-  'input',
-  any,
-  StyledSystemInputProps & OtherInputProps,
-  never
->;
+export type GenericInputProps = StyledSystemProps & OtherProps;

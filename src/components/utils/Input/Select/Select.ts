@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components/macro';
+import styled, { StyledComponentProps, css } from 'styled-components/macro';
 import {
   space,
   layout,
@@ -8,13 +8,21 @@ import {
   shadow,
   compose,
 } from 'styled-system';
-import { InputProps } from './types';
+import { GenericInputProps } from '../types';
 
-const Input = styled.input<InputProps>(
+type SelectProps = StyledComponentProps<
+  'select',
+  any,
+  GenericInputProps,
+  never
+>;
+
+const Select = styled.select<SelectProps>(
   ({ theme, error }) => css`
     font-size: ${theme.fontSizes.S}px;
     line-height: ${theme.lineHeights.M};
     width: 100%;
+    height: 30px;
     padding: 3px ${theme.space.S}px;
     border-radius: 4px;
     border: 1px solid ${error ? theme.colors.error : theme.colors.lightgrey};
@@ -24,4 +32,4 @@ const Input = styled.input<InputProps>(
   compose(space, layout, color, typography, border, shadow),
 );
 
-export default Input;
+export default Select;
