@@ -1,34 +1,20 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Box from 'components/Box';
-import Home from 'pages/home';
-import Events from 'pages/events';
-import Auth from 'pages/auth';
-import Vote from 'pages/vote';
-import Admin from 'pages/admin';
+
+const Home = React.lazy(() => import('pages/home'));
+const VotePage = React.lazy(() => import('pages/vote'));
 
 const App = () => {
   return (
     <Router>
-      <Box>
-        <Switch>
-          <Route path="/events">
-            <Events />
-          </Route>
-          <Route path="/auth">
-            <Auth />
-          </Route>
-          <Route path="/vote">
-            <Vote />
-          </Route>
-          <Route path="/admin">
-            <Admin />
-          </Route>
-          <Route path="/">
-            <Home />
-          </Route>
-        </Switch>
-      </Box>
+      <Switch>
+        <Route path="/vote">
+          <VotePage />
+        </Route>
+        <Route path="/">
+          <Home />
+        </Route>
+      </Switch>
     </Router>
   );
 };

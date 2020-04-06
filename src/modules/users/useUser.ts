@@ -9,13 +9,15 @@ import getCurrentTimestamp from 'utils/getCurrentTimestamp';
 
 const USER_COLLECTION = 'users';
 
-const useUser = (userId: string) => {
+const useUser = () => {
   const firestore = useFirestore();
 
   const firebaseUser = useFirebaseUser<firebase.User | null>();
   const isLoggedIn = !!firebaseUser;
 
-  const userRef = firestore.collection(USER_COLLECTION).doc(userId);
+  const userRef = firestore
+    .collection(USER_COLLECTION)
+    .doc(firebaseUser?.uid ?? 'notloggedin');
 
   const userDoc = useFirestoreDoc(userRef);
   const isSignUpComplete = userDoc.exists;
