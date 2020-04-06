@@ -24,6 +24,7 @@ const Select = styled.select<SelectProps>(
     width: 100%;
     height: 30px;
     padding: 3px ${theme.space.S}px;
+    margin: ${theme.space.XS}px;
     border-radius: 4px;
     border: 1px solid ${error ? theme.colors.error : theme.colors.lightgrey};
     background-color: ${error ? theme.colors.lighterror : 'none'};

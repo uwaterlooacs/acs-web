@@ -18,6 +18,7 @@ const Input = styled.input<InputProps>(
     line-height: ${theme.lineHeights.M};
     width: 100%;
     padding: 3px ${theme.space.S}px;
+    margin: ${theme.space.XS}px;
     border-radius: 4px;
     border: 1px solid ${error ? theme.colors.error : theme.colors.lightgrey};
     background-color: ${error ? theme.colors.lighterror : 'none'};

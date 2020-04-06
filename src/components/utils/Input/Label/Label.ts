@@ -18,6 +18,8 @@ const Label = styled.label<LabelProps>(
     text-transform: uppercase;
     letter-spacing: 2px;
     color: ${error ? theme.colors.error : 'inherit'};
+    margin: ${theme.space.XS}px;
+    display: block;
   `,
   compose(space, layout, color, typography, border, shadow),
 );
