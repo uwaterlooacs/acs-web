@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, fireEvent } from '@testing-library/react';
+import { render, fireEvent } from 'utils/test';
 import { Toggleable, MOCK_TEXT } from './Overlay.stories';
 import { KEYS } from 'utils/keys';
 
