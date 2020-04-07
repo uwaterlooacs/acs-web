@@ -15,7 +15,8 @@
     "react-scripts": "^3.4.1",
     "reactfire": "^2.0.3",
     "styled-components": "^4.4.1",
-    "styled-system": "^5.1.4"
+    "styled-system": "^5.1.4",
+    "uuid": "^7.0.3"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -61,6 +62,7 @@
     "@types/react-select": "^3.0.10",
     "@types/styled-components": "^5.0.1",
     "@types/styled-system": "^5.1.9",
+    "@types/uuid": "^7.0.2",
     "@typescript-eslint/eslint-plugin": "^2.14.0",
     "@typescript-eslint/parser": "^2.14.0",
     "concurrently": "^5.0.2",
