@@ -12,7 +12,7 @@ export const UploaderContainer = styled(Centered)(
 
     &:hover,
     &:active {
-      box-shadow: inset 0 1px 10px rgba(27, 31, 35, 0.45);
+      box-shadow: inset 0 1px 10px rgba(27, 31, 35, 0.25);
     }
   `,
 );
