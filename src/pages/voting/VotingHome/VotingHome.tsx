@@ -48,10 +48,17 @@ const VotingHome = () => {
           </p>
         )}
         {isLoggedIn && (
-          <p>
-            Click the link below to begin your submission to run for one of the
-            positions.
-          </p>
+          <>
+            <p>
+              If you are interested in running for one of these positions, click
+              the link below to upload a short video clip or write-up on why you
+              are a good fit for the position.
+            </p>
+            <p>
+              When voting official opens, members will view your submission and
+              cast their votes.
+            </p>
+          </>
         )}
       </Box>
       <Centered>
