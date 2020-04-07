@@ -40,8 +40,8 @@ const Uploader = ({
         }),
       );
 
-      onUploadComplete(uploadedImages);
       setImageUrls(uploadedImages);
+      onUploadComplete(uploadedImages);
     },
     [storage, storagePath, imageUrls, onUploadComplete],
   );
@@ -65,7 +65,7 @@ const Uploader = ({
           {uploadingCount === 0 ? (
             <>
               <Centered>
-                <Octicon size="large" icon={CloudUpload} />
+                <Octicon size="medium" icon={CloudUpload} />
               </Centered>
               <p>Click or drop to upload</p>
             </>
