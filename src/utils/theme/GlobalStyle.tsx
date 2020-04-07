@@ -33,8 +33,7 @@ code {
 
   button,
   optgroup,
-  select,
-  textarea {
+  select {
     cursor: pointer;
   }
 
