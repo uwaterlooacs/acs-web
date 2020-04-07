@@ -1,4 +1,4 @@
-import { InternalUserData } from './types';
+import { InternalUserData, User } from './types';
 import {
   useFirestore,
   useFirestoreDoc,
@@ -22,7 +22,7 @@ const useUser = () => {
   const userDoc = useFirestoreDoc(userRef);
   const isSignUpComplete = userDoc.exists;
 
-  const user = useFirestoreDocData(userRef, { idField: 'id' });
+  const user = useFirestoreDocData<User>(userRef, { idField: 'id' });
   const setUser = async (modifiedUserData: Partial<InternalUserData>) => {
     const { modifiedOn } = getCurrentTimestamp();
     await userRef.set({ ...modifiedUserData, modifiedOn });
