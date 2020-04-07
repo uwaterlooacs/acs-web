@@ -1,7 +1,7 @@
 import React from 'react';
 import Box from 'components/Box';
 import Page from 'pages/page';
-import VoteRoutes from './VoteRoutes';
+import VoteRoutes from './VotingRoutes';
 
 const VotePage = () => {
   return (

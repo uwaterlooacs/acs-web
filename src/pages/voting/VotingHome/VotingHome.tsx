@@ -1,23 +1,23 @@
 import React from 'react';
-import { useAuth } from 'reactfire';
 import { Redirect } from 'react-router-dom';
 import Box from 'components/Box';
 import SignIn from 'components/SignIn';
 import Button from 'components/buttons/Button';
+import UnstyledLink from 'components/buttons/UnstyledLink';
 import Centered from 'components/utils/Centered';
 import { useUser } from 'modules/users';
 
-const VoteHome = () => {
-  const auth = useAuth();
-  const { isLoggedIn, isSignUpComplete } = useUser();
+const VotingHome = () => {
+  const { user, isLoggedIn, isSignUpComplete } = useUser();
 
   if (isLoggedIn && !isSignUpComplete) {
-    return <Redirect to="/vote/completesignup" />;
+    return <Redirect to="/voting/completesignup" />;
   }
 
   return (
     <Box>
       <Box mt={2} p={3} m="0 auto" maxWidth={600}>
+        {isLoggedIn && <p>Hey {user.name}!</p>}
         <p>
           We&apos;re currently accepting submission for the following positions:
         </p>
@@ -41,21 +41,29 @@ const VoteHome = () => {
             </span>
           </li>
         </ul>
-        <p>
-          Sign up or sign in below to post your submission for any of these
-          positions.
-        </p>
+        {!isLoggedIn && (
+          <p>
+            Sign up or sign in below to post your submission for any of these
+            positions.
+          </p>
+        )}
+        {isLoggedIn && (
+          <p>
+            Click the link below to begin your submission to run for one of the
+            positions.
+          </p>
+        )}
       </Box>
       <Centered>
         <SignIn />
       </Centered>
       <Centered>
-        <Button onClick={() => auth.signOut()} disabled={!isLoggedIn}>
-          Sign out
-        </Button>
+        <UnstyledLink to="/voting/submit">
+          <Button>Run for a position</Button>
+        </UnstyledLink>
       </Centered>
     </Box>
   );
 };
 
-export default VoteHome;
+export default VotingHome;

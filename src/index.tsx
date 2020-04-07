@@ -2,12 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import * as serviceWorker from './serviceWorker';
 
-import App from './App';
+import Routes from './Routes';
 import AppProvider from 'components/AppProvider';
 
 ReactDOM.render(
   <AppProvider>
-    <App />
+    <Routes />
   </AppProvider>,
   document.getElementById('root'),
 );

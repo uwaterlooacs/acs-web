@@ -41,7 +41,7 @@ const VoteCompleteSignUp = () => {
   };
 
   if (!isLoggedIn || isSignUpComplete) {
-    return <Redirect to="/vote" />;
+    return <Redirect to="/voting" />;
   }
 
   return (

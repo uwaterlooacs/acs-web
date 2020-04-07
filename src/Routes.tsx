@@ -2,13 +2,13 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 const Home = React.lazy(() => import('pages/home'));
-const VotePage = React.lazy(() => import('pages/vote'));
+const VotePage = React.lazy(() => import('pages/voting'));
 
-const App = () => {
+const Routes = () => {
   return (
     <Router>
       <Switch>
-        <Route path="/vote">
+        <Route path="/voting">
           <VotePage />
         </Route>
         <Route path="/">
@@ -19,4 +19,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default Routes;
