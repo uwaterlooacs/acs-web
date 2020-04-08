@@ -64,11 +64,13 @@ const VotingHome = () => {
       <Centered>
         <SignIn />
       </Centered>
-      <Centered>
-        <UnstyledLink to="/voting/submit">
-          <Button>Run for a position</Button>
-        </UnstyledLink>
-      </Centered>
+      {isSignUpComplete && (
+        <Centered>
+          <UnstyledLink to="/voting/submission">
+            <Button>Run for a position</Button>
+          </UnstyledLink>
+        </Centered>
+      )}
     </Box>
   );
 };
