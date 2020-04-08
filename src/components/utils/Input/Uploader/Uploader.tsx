@@ -1,12 +1,12 @@
 import React, { useState, useCallback } from 'react';
 import { useDropzone } from 'react-dropzone';
 import { useStorage } from 'reactfire';
-import Box, { BoxProps } from 'components/Box';
-import { UploaderContainer } from './elements';
-import { processFile } from './utils';
 import Octicon, { CloudUpload } from '@primer/octicons-react';
+import Box, { BoxProps } from 'components/Box';
 import Centered from 'components/utils/Centered';
 import Spinner from 'components/utils/Spinner';
+import { UploaderContainer } from './elements';
+import { processFile } from './utils';
 
 export type UploaderProps = BoxProps & {
   storagePath: string;
@@ -14,6 +14,7 @@ export type UploaderProps = BoxProps & {
   onUploadComplete: (imageUrls: string[]) => void;
   disabled?: boolean;
   multiple?: boolean;
+  error?: boolean;
 };
 const Uploader = ({
   storagePath,
@@ -21,6 +22,7 @@ const Uploader = ({
   onUploadComplete,
   disabled = false,
   multiple = true,
+  error = false,
   ...boxProps
 }: UploaderProps) => {
   const [imageUrls, setImageUrls] = useState<string[]>([]);
@@ -57,6 +59,7 @@ const Uploader = ({
     <>
       <UploaderContainer
         data-testid="uploader-dropzone"
+        error={error}
         {...boxProps}
         {...getRootProps()}
       >
