@@ -39,7 +39,14 @@ const useSubmissions = () => {
     await submissionRef.set(submissionUserData);
   };
 
-  return { submissions, addSubmission, setSubmission };
+  const findSubmission = (candidate: string, position: string) => {
+    return submissions.find(
+      submission =>
+        submission.candidate === candidate && submission.position === position,
+    );
+  };
+
+  return { submissions, addSubmission, setSubmission, findSubmission };
 };
 
 export default useSubmissions;
