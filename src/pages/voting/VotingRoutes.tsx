@@ -1,16 +1,18 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
-const VoteHome = React.lazy(() => import('./VotingHome'));
-const VoteCompleteSignUp = React.lazy(() => import('./VotingCompleteSignUp'));
+const VotingHome = React.lazy(() => import('./VotingHome'));
+const VotingCompleteSignUp = React.lazy(() => import('./VotingCompleteSignUp'));
+const VotingSubmission = React.lazy(() => import('./VotingSubmission'));
 
-const VoteRoutes = () => {
+const VotingRoutes = () => {
   return (
     <Switch>
-      <Route path="/voting/completesignup" component={VoteCompleteSignUp} />
-      <Route path="/voting" component={VoteHome} />
+      <Route path="/voting/submission" component={VotingSubmission} />
+      <Route path="/voting/completesignup" component={VotingCompleteSignUp} />
+      <Route path="/voting" component={VotingHome} />
     </Switch>
   );
 };
 
-export default VoteRoutes;
+export default VotingRoutes;
