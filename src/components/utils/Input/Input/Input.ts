@@ -21,7 +21,7 @@ const Input = styled.input<InputProps>(
     margin: ${theme.space.XS}px;
     border-radius: 4px;
     border: 1px solid ${error ? theme.colors.error : theme.colors.lightgrey};
-    background-color: ${error ? theme.colors.lighterror : 'none'};
+    background-color: ${error ? theme.colors.lighterror : 'inherit'};
     box-shadow: inset 0 1px 2px rgba(27, 31, 35, 0.075);
   `,
   compose(space, layout, color, typography, border, shadow),
