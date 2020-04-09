@@ -9,7 +9,8 @@ export const SubmissionContainer = styled(Box)<SubmissionContainerProps>(
     padding: ${theme.space.L}px;
     margin: ${theme.space.XS}px;
     background-color: ${votedFor ? theme.colors.lightprimary : 'inherit'};
-    border: 1px solid ${theme.colors.lightgrey};
+    border: 1px solid
+      ${votedFor ? theme.colors.primary : theme.colors.lightgrey};
     border-radius: 4px;
 
     video {

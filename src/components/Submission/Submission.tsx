@@ -41,7 +41,11 @@ const Submission: React.FC<SubmissionProps> = ({
         </Box>
       )}
       <Centered mt="L">
-        {<Button onClick={castVote}>Vote for {fullName}</Button>}
+        {
+          <Button onClick={castVote} disabled={votedFor}>
+            Vote{votedFor && ' cast'} for {fullName}
+          </Button>
+        }
       </Centered>
       <Box mt="L" display="flex" fontSize="XXS">
         <Box flex={1}>
