@@ -1,8 +1,8 @@
 import React from 'react';
-import Page from 'pages/page';
+import { Redirect } from 'react-router-dom';
 
 const Home = () => {
-  return <Page></Page>;
+  return <Redirect to="/voting" />;
 };
 
 export default Home;
