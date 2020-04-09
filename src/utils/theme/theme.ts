@@ -16,6 +16,7 @@ const colors = {
   white: '#fff',
   'white/transparent': '#fffb',
   primary: '#ed3330',
+  lightprimary: '#ebafae',
   secondary: '#50a6d7',
   text: '#000e1a',
   // error colors
