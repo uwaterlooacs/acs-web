@@ -13,8 +13,8 @@ export type SubmissionData = SubmissionInternalData & SubmissionUserData;
 
 type SubmissionMetadata = {
   id: string;
-  createdOn: string;
-  modifiedOn: string;
+  createdOn: Date;
+  modifiedOn: Date;
 };
 
 export type Submission = SubmissionData & SubmissionMetadata;
