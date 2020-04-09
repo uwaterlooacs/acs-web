@@ -7,6 +7,7 @@ import Button from 'components/buttons/Button';
 import Centered from 'components/utils/Centered';
 import useSubmissions from 'modules/submissions';
 import { useUser } from 'modules/users';
+import { VideoPreviewContainer } from './elements';
 
 type SubmissionFormProps = {
   position: string;
@@ -100,12 +101,12 @@ const SubmissionForm: React.FC<SubmissionFormProps> = ({ position }) => {
                 Remove <Octicon icon={X} />
               </UnstyledButton>
             </Box>
-            <Box m="XS">
+            <VideoPreviewContainer>
               <video controls width="100%">
                 <source src={videoUrl} />
                 Sorry, your browser doesn&apos;t support embedded videos.
               </video>
-            </Box>
+            </VideoPreviewContainer>
           </>
         )}
       </Box>
