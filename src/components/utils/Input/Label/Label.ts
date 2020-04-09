@@ -14,7 +14,6 @@ type LabelProps = StyledComponentProps<'label', any, GenericInputProps, never>;
 
 const Label = styled.label<LabelProps>(
   ({ theme, error }) => css`
-    font-size: ${theme.fontSizes.S}px;
     text-transform: uppercase;
     letter-spacing: 2px;
     color: ${error ? theme.colors.error : 'inherit'};
