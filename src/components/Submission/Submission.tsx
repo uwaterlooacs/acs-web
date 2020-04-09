@@ -8,7 +8,7 @@ import Centered from 'components/utils/Centered';
 
 export type SubmissionProps = {
   submission: SubmissionType;
-  castVote: () => Promise<void>;
+  castVote: () => Promise<void> | void;
   votedFor?: boolean;
 };
 const Submission: React.FC<SubmissionProps> = ({
@@ -51,13 +51,13 @@ const Submission: React.FC<SubmissionProps> = ({
         <Box flex={1}>
           <Label>Submitted on</Label>
           <Box m="XS">
-            <p>{createdOn.toDateString()}</p>
+            <p>{createdOn.toDate().toDateString()}</p>
           </Box>
         </Box>
         <Box flex={1}>
           <Label>Last modified on</Label>
           <Box m="XS">
-            <p>{modifiedOn.toDateString()}</p>
+            <p>{modifiedOn.toDate().toDateString()}</p>
           </Box>
         </Box>
       </Box>

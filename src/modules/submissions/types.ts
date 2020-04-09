@@ -13,8 +13,8 @@ export type SubmissionData = SubmissionInternalData & SubmissionUserData;
 
 type SubmissionMetadata = {
   id: string;
-  createdOn: Date;
-  modifiedOn: Date;
+  createdOn: firebase.firestore.Timestamp;
+  modifiedOn: firebase.firestore.Timestamp;
 };
 
 export type Submission = SubmissionData & SubmissionMetadata;

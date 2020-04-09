@@ -5,6 +5,7 @@ import { useUser } from 'modules/users';
 import useSubmissions from 'modules/submissions';
 import SubmissionForm from './SubmissionForm';
 import { VotingSubmitPositionParams } from './types';
+import Submission from 'components/Submission';
 
 const VotingSubmitPosition = () => {
   const { user, isSignUpComplete } = useUser();
@@ -32,6 +33,13 @@ const VotingSubmitPosition = () => {
             Your submission to run for the position of {position} has been
             successfully recorded.
           </p>
+          <p>Below is how your submission will look to members.</p>
+          <Submission
+            submission={submission}
+            castVote={() => {
+              console.log("You can't vote for from here.");
+            }}
+          />
         </>
       )}
     </Box>
