@@ -6,7 +6,6 @@ type SubmissionContainerProps = BoxProps & {
 };
 export const SubmissionContainer = styled(Box)<SubmissionContainerProps>(
   ({ theme, votedFor }) => css`
-    padding: ${theme.space.L}px;
     margin: ${theme.space.XS}px;
     background-color: ${votedFor ? theme.colors.lightprimary : 'inherit'};
     border: 1px solid
@@ -18,3 +17,7 @@ export const SubmissionContainer = styled(Box)<SubmissionContainerProps>(
     }
   `,
 );
+
+SubmissionContainer.defaultProps = {
+  p: ['M', 'L'],
+};
