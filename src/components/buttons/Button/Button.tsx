@@ -1,7 +1,11 @@
 import styled, { css } from 'styled-components/macro';
-import UnstyledButton from '../UnstyledButton';
+import UnstyledButton, { UnstyledButtonProps } from '../UnstyledButton';
+import { variant } from 'styled-system';
 
-export const Button = styled(UnstyledButton)(
+type ButtonProps = UnstyledButtonProps & {
+  variant?: 'secondary';
+};
+export const Button = styled(UnstyledButton)<ButtonProps>(
   ({ theme }) => css`
     color: ${theme.colors.white} !important;
     text-transform: uppercase;
@@ -27,6 +31,13 @@ export const Button = styled(UnstyledButton)(
       box-shadow: none;
     }
   `,
+  variant({
+    variants: {
+      secondary: {
+        bg: 'secondary',
+      },
+    },
+  }),
 );
 
 export default Button;

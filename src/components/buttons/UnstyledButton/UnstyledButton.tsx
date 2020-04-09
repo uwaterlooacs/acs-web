@@ -12,7 +12,7 @@ import {
   BorderProps,
 } from 'styled-system';
 
-type UnstyledButtonProps = SpaceProps &
+export type UnstyledButtonProps = SpaceProps &
   LayoutProps &
   ColorProps &
   TypographyProps &
