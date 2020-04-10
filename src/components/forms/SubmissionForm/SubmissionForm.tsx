@@ -5,18 +5,24 @@ import { Label, Input, Uploader, Textarea } from 'components/utils/input';
 import UnstyledButton from 'components/buttons/UnstyledButton';
 import Button from 'components/buttons/Button';
 import Centered from 'components/utils/Centered';
-import useSubmissions from 'modules/submissions';
-import { useUser } from 'modules/users';
+import { SubmissionUserData } from 'modules/submissions';
 import { VideoPreviewContainer } from './elements';
 
-type SubmissionFormProps = {
+export type SubmissionFormProps = {
   position: string;
+  addSubmission: (
+    newSubmissionData: SubmissionUserData,
+  ) => Promise<
+    firebase.firestore.DocumentReference<firebase.firestore.DocumentData>
+  >;
+  initialName?: string;
 };
-const SubmissionForm: React.FC<SubmissionFormProps> = ({ position }) => {
-  const { user } = useUser();
-  const { addSubmission } = useSubmissions();
-
-  const [fullName, setFullName] = useState(user.name);
+const SubmissionForm: React.FC<SubmissionFormProps> = ({
+  position,
+  addSubmission,
+  initialName = '',
+}) => {
+  const [fullName, setFullName] = useState(initialName);
   const [videoUrl, setVideoUrl] = useState('');
   const [writeUp, setWriteUp] = useState('');
 
@@ -42,7 +48,7 @@ const SubmissionForm: React.FC<SubmissionFormProps> = ({ position }) => {
     });
   };
   return (
-    <>
+    <Box>
       <Box mt={4}>
         <Label error={showFullNameError}>Full name</Label>
         <p>Please confirm or update your full name below.</p>
@@ -125,7 +131,7 @@ const SubmissionForm: React.FC<SubmissionFormProps> = ({ position }) => {
       <Centered mt={3}>
         <Button onClick={submit}>Submit</Button>
       </Centered>
-    </>
+    </Box>
   );
 };
 
