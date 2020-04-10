@@ -12,7 +12,9 @@ const useSubmissions = () => {
   const { firebaseUser, isSignUpComplete } = useUser();
 
   const submissionsRef = firestore.collection(SUBMISSIONS_COLLECTION);
-  const submissions = useFirestoreCollectionData<Submission>(submissionsRef);
+  const submissions = useFirestoreCollectionData<Submission>(submissionsRef, {
+    idField: 'id',
+  });
 
   const addSubmission = async (submissionUserData: SubmissionUserData) => {
     if (!isSignUpComplete || !firebaseUser) {
@@ -46,7 +48,18 @@ const useSubmissions = () => {
     );
   };
 
-  return { submissions, addSubmission, setSubmission, findSubmission };
+  const deleteSubmission = async (submissionId: string) => {
+    const submissionRef = submissionsRef.doc(submissionId);
+    await submissionRef.delete();
+  };
+
+  return {
+    submissions,
+    addSubmission,
+    setSubmission,
+    findSubmission,
+    deleteSubmission,
+  };
 };
 
 export default useSubmissions;
