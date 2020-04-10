@@ -24,6 +24,17 @@ const useUser = () => {
 
   const user = useFirestoreDocData<User>(userRef, { idField: 'id' });
   const setUser = async (modifiedUserData: Partial<InternalUserData>) => {
+    if (!firebaseUser) {
+      throw new Error(
+        'Trying to set user data for a user who is not logged in.',
+      );
+    }
+    if (isSignUpComplete) {
+      throw new Error(
+        'Trying to set user data for a user whose signup is already complete.',
+      );
+    }
+
     const { modifiedOn } = getCurrentTimestamp();
     await userRef.set({ ...modifiedUserData, modifiedOn });
   };
