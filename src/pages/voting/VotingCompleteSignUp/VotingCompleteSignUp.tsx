@@ -52,10 +52,10 @@ const VoteCompleteSignUp = () => {
           information to complete your sign up.
         </p>
         <form>
-          <Box>
+          <Box mt={4}>
             <Label error={showWaterlooEmailError}>UW email address</Label>
             <Box display="flex" alignItems="center">
-              <Octicon icon={Mail} />
+              <Octicon width={16} icon={Mail} />
               <Input
                 ml="S"
                 type="email"
@@ -74,10 +74,10 @@ const VoteCompleteSignUp = () => {
               </Box>
             )}
           </Box>
-          <Box>
+          <Box mt={4}>
             <Label error={showStudentNumberError}>Student Number</Label>
             <Box display="flex" alignItems="center">
-              <Octicon icon={Person} />
+              <Octicon width={16} icon={Person} />
               <Input
                 ml="S"
                 type="number"
@@ -94,10 +94,10 @@ const VoteCompleteSignUp = () => {
               </Box>
             )}
           </Box>
-          <Box>
+          <Box mt={4}>
             <Label>Faculty</Label>
             <Box display="flex" alignItems="center">
-              <Octicon icon={Book} />
+              <Octicon width={16} icon={Book} />
               <Select
                 ml="S"
                 value={faculty}
