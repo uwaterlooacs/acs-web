@@ -5,8 +5,8 @@ import logo from './acs-logo-color-title.jpg';
 
 const Page: React.FC = ({ children }) => {
   return (
-    <Box>
-      <Centered mt={5}>
+    <Box mt={5} mb={5}>
+      <Centered>
         <img src={logo} alt="UW ACS logo" />
       </Centered>
       {children}
