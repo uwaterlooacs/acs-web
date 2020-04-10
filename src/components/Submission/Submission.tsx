@@ -1,10 +1,11 @@
 import React from 'react';
 import Box from 'components/Box';
-import { Submission as SubmissionType } from 'modules/submissions';
 import { Label } from 'components/utils/input';
-import { SubmissionContainer } from './elements';
 import Button from 'components/buttons/Button';
 import Centered from 'components/utils/Centered';
+import RoundedImg from 'components/utils/RoundedImg';
+import { Submission as SubmissionType } from 'modules/submissions';
+import { SubmissionContainer } from './elements';
 
 export type SubmissionProps = {
   submission: SubmissionType;
@@ -16,12 +17,29 @@ const Submission: React.FC<SubmissionProps> = ({
   castVote,
   votedFor = false,
 }) => {
-  const { fullName, videoUrl, writeUp, createdOn, modifiedOn } = submission;
+  const {
+    fullName,
+    photoUrl,
+    videoUrl,
+    writeUp,
+    createdOn,
+    modifiedOn,
+  } = submission;
 
   return (
     <SubmissionContainer votedFor={votedFor}>
-      <Box fontSize="XL" textAlign="center">
-        {fullName}
+      <Box
+        fontSize="XL"
+        textAlign="center"
+        display="flex"
+        justifyContent={photoUrl ? 'space-between' : 'center'}
+        alignItems="center"
+      >
+        {photoUrl && (
+          <RoundedImg width={24} height={24} src={photoUrl} alt="Profile" />
+        )}
+        <Box>{fullName}</Box>
+        {photoUrl && <Box width={24}>&nbsp;</Box>}
       </Box>
       <Box mt="L">
         <Label>Video submission</Label>

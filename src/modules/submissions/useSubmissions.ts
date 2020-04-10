@@ -26,6 +26,7 @@ const useSubmissions = () => {
     const submissionData: SubmissionData = {
       ...submissionUserData,
       candidate: firebaseUser.uid,
+      photoUrl: firebaseUser.photoURL,
     };
     return await submissionsRef.add({
       ...submissionData,

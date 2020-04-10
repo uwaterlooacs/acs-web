@@ -1,5 +1,6 @@
 type SubmissionInternalData = {
   candidate: string;
+  photoUrl: string | null;
 };
 
 export type SubmissionUserData = {

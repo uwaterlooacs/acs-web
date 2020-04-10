@@ -9,6 +9,7 @@ const mockProps: SubmissionProps = {
   submission: {
     id: 'SUBMISSION_ID',
     candidate: 'CANDIDATE_ID',
+    photoUrl: 'https://picsum.photos/50/50',
     fullName: 'Jane Doe',
     position: 'president',
     videoUrl:
