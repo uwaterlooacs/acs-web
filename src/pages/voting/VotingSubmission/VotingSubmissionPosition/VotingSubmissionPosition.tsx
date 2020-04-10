@@ -72,10 +72,12 @@ const VotingSubmitPosition = () => {
       )}
       {showSubmissionPreview && (
         <>
-          <p>
-            Your submission to run for the position of {position} has been
-            successfully recorded.
-          </p>
+          <Box color="success">
+            <p>
+              Your submission to run for the position of {position} has been
+              successfully recorded.
+            </p>
+          </Box>
           <p>Below is how your submission will look to members.</p>
           <Submission
             // showSubmissionPreview ensure this cast is okay
