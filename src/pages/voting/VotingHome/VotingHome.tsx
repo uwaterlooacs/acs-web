@@ -1,14 +1,20 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
+import Octicon, { Check } from '@primer/octicons-react';
 import Box from 'components/Box';
 import SignIn from 'components/SignIn';
 import Button from 'components/buttons/Button';
 import UnstyledLink from 'components/buttons/UnstyledLink';
 import Centered from 'components/utils/Centered';
 import { useUser } from 'modules/users';
+import useSubmissions from 'modules/submissions';
 
 const VotingHome = () => {
   const { user, isLoggedIn, isSignUpComplete } = useUser();
+  const { getPositionsSubmittedFor } = useSubmissions();
+
+  const positionsSubmittedFor = getPositionsSubmittedFor(user.id);
+  const numPositionSubmittedFor = Object.keys(positionsSubmittedFor).length;
 
   if (isLoggedIn && !isSignUpComplete) {
     return <Redirect to="/voting/completesignup" />;
@@ -18,27 +24,87 @@ const VotingHome = () => {
     <Box>
       <Box mt={2} p={3} m="0 auto" maxWidth={600}>
         {isLoggedIn && <p>Hey {user.name}!</p>}
+        {numPositionSubmittedFor > 0 && (
+          <Box color="success">
+            <p>
+              Looks like we&apos;ve recorded{' '}
+              {numPositionSubmittedFor === 1 ? 'a' : 'multiple'} submission
+              {numPositionSubmittedFor > 1 && 's'} for{' '}
+              {numPositionSubmittedFor === 1 && 'a'} position
+              {numPositionSubmittedFor > 1 && 's'} you&apos;re running for.
+            </p>
+            <p>
+              Click the green submitted indicator to view, edit or delete your
+              submission.
+            </p>
+          </Box>
+        )}
         <p>
           We&apos;re currently accepting submission for the following positions:
         </p>
         <ul>
           <li>
-            President{' '}
-            <span role="img" aria-label="crown">
-              👑
-            </span>
+            <Box
+              display="flex"
+              justifyContent="space-between"
+              alignItems="center"
+            >
+              <Box>
+                President{' '}
+                <span role="img" aria-label="crown">
+                  👑
+                </span>
+              </Box>
+              {positionsSubmittedFor['president'] && (
+                <UnstyledLink to="/voting/submission/president">
+                  <Box color="success" fontSize="XS" mr="L">
+                    <Octicon icon={Check} /> Submitted
+                  </Box>
+                </UnstyledLink>
+              )}
+            </Box>
           </li>
           <li>
-            Vice-President{' '}
-            <span role="img" aria-label="sparkle">
-              ✨
-            </span>
+            <Box
+              display="flex"
+              justifyContent="space-between"
+              alignItems="center"
+            >
+              <Box>
+                Vice-President{' '}
+                <span role="img" aria-label="sparkle">
+                  ✨
+                </span>
+              </Box>
+              {positionsSubmittedFor['vice-president'] && (
+                <UnstyledLink to="/voting/submission/vice-president">
+                  <Box color="success" fontSize="XS" mr="L">
+                    <Octicon icon={Check} /> Submitted
+                  </Box>
+                </UnstyledLink>
+              )}
+            </Box>
           </li>
           <li>
-            Secretary{' '}
-            <span role="img" aria-label="file cabinet">
-              🗄
-            </span>
+            <Box
+              display="flex"
+              justifyContent="space-between"
+              alignItems="center"
+            >
+              <Box>
+                Secretary{' '}
+                <span role="img" aria-label="file cabinet">
+                  🗄
+                </span>
+              </Box>
+              {positionsSubmittedFor['secretary'] && (
+                <UnstyledLink to="/voting/submission/secretary">
+                  <Box color="success" fontSize="XS" mr="L">
+                    <Octicon icon={Check} /> Submitted
+                  </Box>
+                </UnstyledLink>
+              )}
+            </Box>
           </li>
         </ul>
         {!isLoggedIn && (

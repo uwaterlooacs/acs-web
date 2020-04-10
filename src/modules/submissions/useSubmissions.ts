@@ -59,12 +59,26 @@ const useSubmissions = () => {
     await submissionRef.delete();
   };
 
+  const getPositionsSubmittedFor = (candidate: string) => {
+    const candidateSubmissions = submissions.filter(
+      submission => submission.candidate === candidate,
+    );
+    return candidateSubmissions.reduce<Record<string, boolean>>(
+      (positionsSubmittedFor, submission) => ({
+        ...positionsSubmittedFor,
+        [submission.position]: true,
+      }),
+      {},
+    );
+  };
+
   return {
     submissions,
     addSubmission,
     setSubmission,
     findSubmission,
     deleteSubmission,
+    getPositionsSubmittedFor,
   };
 };
 

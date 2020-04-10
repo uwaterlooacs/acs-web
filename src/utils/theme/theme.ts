@@ -22,6 +22,8 @@ const colors = {
   // error colors
   error: '#EB0000',
   lighterror: '#fff5f5',
+  // success colors
+  success: '#4bb453',
 };
 
 //--> Space
