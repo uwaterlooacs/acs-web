@@ -48,7 +48,7 @@ const SubmissionForm: React.FC<SubmissionFormProps> = ({
     });
   };
   return (
-    <Box>
+    <form>
       <Box mt={4}>
         <Label error={showFullNameError}>Full name</Label>
         <p>Please confirm or update your full name below.</p>
@@ -129,9 +129,11 @@ const SubmissionForm: React.FC<SubmissionFormProps> = ({
         />
       </Box>
       <Centered mt={3}>
-        <Button onClick={trySubmit}>Submit</Button>
+        <Button type="button" onClick={trySubmit}>
+          Submit
+        </Button>
       </Centered>
-    </Box>
+    </form>
   );
 };
 
