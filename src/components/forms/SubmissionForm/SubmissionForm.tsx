@@ -10,18 +10,14 @@ import { VideoPreviewContainer } from './elements';
 
 export type SubmissionFormProps = {
   position: string;
-  addSubmission: (
-    newSubmissionData: SubmissionUserData,
-  ) => Promise<
-    firebase.firestore.DocumentReference<firebase.firestore.DocumentData>
-  >;
+  submit: (newSubmissionData: SubmissionUserData) => Promise<void>;
   initialName?: string;
   initialVideoUrl?: string;
   initialWriteUp?: string;
 };
 const SubmissionForm: React.FC<SubmissionFormProps> = ({
   position,
-  addSubmission,
+  submit,
   initialName = '',
   initialVideoUrl = '',
   initialWriteUp = '',
@@ -39,12 +35,12 @@ const SubmissionForm: React.FC<SubmissionFormProps> = ({
     setVideoUrl(downloadUrls[0]);
   };
 
-  const submit = async () => {
+  const trySubmit = async () => {
     if (!videoUrl || !fullName) {
       setTryedToSubmit(true);
       return;
     }
-    await addSubmission({
+    await submit({
       fullName,
       position,
       videoUrl,
@@ -133,7 +129,7 @@ const SubmissionForm: React.FC<SubmissionFormProps> = ({
         />
       </Box>
       <Centered mt={3}>
-        <Button onClick={submit}>Submit</Button>
+        <Button onClick={trySubmit}>Submit</Button>
       </Centered>
     </Box>
   );

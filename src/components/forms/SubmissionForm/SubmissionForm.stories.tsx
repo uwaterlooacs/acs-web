@@ -7,7 +7,7 @@ export default { title: 'Forms|SubmissionForm' };
 
 const mockProps: SubmissionFormProps = {
   position: 'president',
-  addSubmission: action('addSubmission') as any,
+  submit: action('submit') as any,
   initialName: 'Jane Doe',
 };
 

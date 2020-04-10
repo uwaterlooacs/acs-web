@@ -37,8 +37,14 @@ const useSubmissions = () => {
     submissionId: string,
     submissionUserData: Partial<SubmissionUserData>,
   ) => {
+    const submission = submissions.find(
+      submission => submission.id === submissionId,
+    );
+    if (!submission) {
+      throw new Error('Trying to set submission that does not exist.');
+    }
     const submissionRef = submissionsRef.doc(submissionId);
-    await submissionRef.set(submissionUserData);
+    await submissionRef.set({ ...submission, ...submissionUserData });
   };
 
   const findSubmission = (candidate: string, position: string) => {
