@@ -16,15 +16,19 @@ export type SubmissionFormProps = {
     firebase.firestore.DocumentReference<firebase.firestore.DocumentData>
   >;
   initialName?: string;
+  initialVideoUrl?: string;
+  initialWriteUp?: string;
 };
 const SubmissionForm: React.FC<SubmissionFormProps> = ({
   position,
   addSubmission,
   initialName = '',
+  initialVideoUrl = '',
+  initialWriteUp = '',
 }) => {
   const [fullName, setFullName] = useState(initialName);
-  const [videoUrl, setVideoUrl] = useState('');
-  const [writeUp, setWriteUp] = useState('');
+  const [videoUrl, setVideoUrl] = useState(initialVideoUrl);
+  const [writeUp, setWriteUp] = useState(initialWriteUp);
 
   const [tryedToSubmit, setTryedToSubmit] = useState(false);
 
