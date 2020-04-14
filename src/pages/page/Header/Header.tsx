@@ -42,7 +42,7 @@ const Header = () => {
         variant="stayOnHover"
       >
         <UnstyledButton color="white" onClick={() => auth.signOut()}>
-          Logout
+          Sign out
         </UnstyledButton>
       </StyledTooltip>
     </Box>
