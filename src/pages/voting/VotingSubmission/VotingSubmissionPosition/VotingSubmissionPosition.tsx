@@ -67,6 +67,7 @@ const VotingSubmitPosition = () => {
             initialName={submission?.fullName ?? user.name}
             initialVideoUrl={submission?.videoUrl}
             initialWriteUp={submission?.writeUp}
+            initialImageUrl={submission?.photoUrl ?? user.photoURL}
           />
         </>
       )}

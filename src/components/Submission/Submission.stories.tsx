@@ -12,6 +12,7 @@ const mockProps: SubmissionProps = {
     photoUrl: 'https://picsum.photos/50/50',
     fullName: 'Jane Doe',
     position: 'president',
+    imageUrl: 'https://picsum.photos/50/50',
     videoUrl:
       'https://firebasestorage.googleapis.com/v0/b/acs-web-5aaaf.appspot.com/o/W20%2Fvoting%2Fvideosubmissions%2Fsecretary%2Fe771e6d7-9aac-4414-b575-95f8b0992d38?alt=media&token=f4749968-918c-4a30-b507-1165aa9c9a6b',
     writeUp:
