@@ -6,6 +6,7 @@ type SubmissionInternalData = {
 export type SubmissionUserData = {
   fullName: string;
   position: string;
+  imageUrl: string;
   videoUrl: string;
   writeUp: string;
 };

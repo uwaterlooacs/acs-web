@@ -6,12 +6,13 @@ import UnstyledButton from 'components/buttons/UnstyledButton';
 import Button from 'components/buttons/Button';
 import Centered from 'components/utils/Centered';
 import { SubmissionUserData } from 'modules/submissions';
-import { VideoPreviewContainer } from './elements';
+import { MediaPreviewContainer } from './elements';
 
 export type SubmissionFormProps = {
   position: string;
   submit: (newSubmissionData: SubmissionUserData) => Promise<void>;
   initialName?: string;
+  initialImageUrl?: string;
   initialVideoUrl?: string;
   initialWriteUp?: string;
 };
@@ -19,10 +20,12 @@ const SubmissionForm: React.FC<SubmissionFormProps> = ({
   position,
   submit,
   initialName = '',
+  initialImageUrl = '',
   initialVideoUrl = '',
   initialWriteUp = '',
 }) => {
   const [fullName, setFullName] = useState(initialName);
+  const [imageUrl, setImageUrl] = useState(initialImageUrl);
   const [videoUrl, setVideoUrl] = useState(initialVideoUrl);
   const [writeUp, setWriteUp] = useState(initialWriteUp);
 
@@ -30,9 +33,13 @@ const SubmissionForm: React.FC<SubmissionFormProps> = ({
 
   const showFullNameError = tryedToSubmit && !fullName;
   const showVideoUrlError = tryedToSubmit && !videoUrl;
+  const showImageUrlError = tryedToSubmit && !imageUrl;
 
   const onVideoUploaded = (downloadUrls: string[]) => {
     setVideoUrl(downloadUrls[0]);
+  };
+  const onImageUploaded = (downloadUrls: string[]) => {
+    setImageUrl(downloadUrls[0]);
   };
 
   const trySubmit = async () => {
@@ -43,6 +50,7 @@ const SubmissionForm: React.FC<SubmissionFormProps> = ({
     await submit({
       fullName,
       position,
+      imageUrl,
       videoUrl,
       writeUp,
     });
@@ -67,6 +75,55 @@ const SubmissionForm: React.FC<SubmissionFormProps> = ({
           <Box color="error" fontSize="S" mb={3}>
             Please enter your full name.
           </Box>
+        )}
+      </Box>
+      <Box mt={4}>
+        <Label error={showFullNameError}>
+          Picture Submission (for IG post)
+        </Label>
+        <p>
+          Upload a picture of yourself that we can use for an Instagram post.
+        </p>
+        {!imageUrl ? (
+          <>
+            <p>
+              Your picture, along with the pictures that other candidates for
+              this position upload, will be posted on Instagram once submissions
+              are closed to announce the candidates.
+            </p>
+            <Box height={200}>
+              <Uploader
+                error={showImageUrlError}
+                storagePath={`W20/voting/imagesubmissions/${position}`}
+                accept="image/*"
+                onUploadComplete={onImageUploaded}
+                multiple={false}
+              />
+            </Box>
+            {showImageUrlError && (
+              <Box color="error" fontSize="S" mb={3}>
+                Please upload an image of yourself.
+              </Box>
+            )}
+          </>
+        ) : (
+          <>
+            <p>
+              {!tryedToSubmit
+                ? 'The profile photo that we got from your login method was used as a default.'
+                : 'Image successfully uploaded!'}{' '}
+              You can view it below or click remove to upload a different
+              picture.
+            </p>
+            <Box display="flex" justifyContent="flex-end">
+              <UnstyledButton display="inline" onClick={() => setImageUrl('')}>
+                Remove <Octicon icon={X} />
+              </UnstyledButton>
+            </Box>
+            <MediaPreviewContainer>
+              <img src={imageUrl} alt="Instagram post" />
+            </MediaPreviewContainer>
+          </>
         )}
       </Box>
       <Box mt={4}>
@@ -107,12 +164,12 @@ const SubmissionForm: React.FC<SubmissionFormProps> = ({
                 Remove <Octicon icon={X} />
               </UnstyledButton>
             </Box>
-            <VideoPreviewContainer>
+            <MediaPreviewContainer>
               <video controls width="100%">
                 <source src={videoUrl} />
                 Sorry, your browser doesn&apos;t support embedded videos.
               </video>
-            </VideoPreviewContainer>
+            </MediaPreviewContainer>
           </>
         )}
       </Box>
