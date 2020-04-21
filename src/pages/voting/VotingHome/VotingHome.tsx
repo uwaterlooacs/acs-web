@@ -1,7 +1,7 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
 import { useUser } from 'modules/users';
-import SubmissionHome from './SubmissionHome';
+import VoteHome from './VoteHome';
 
 const VotingHome = () => {
   const { isLoggedIn, isSignUpComplete } = useUser();
@@ -10,7 +10,7 @@ const VotingHome = () => {
     return <Redirect to="/voting/completesignup" />;
   }
 
-  return <SubmissionHome />;
+  return <VoteHome />;
 };
 
 export default VotingHome;
