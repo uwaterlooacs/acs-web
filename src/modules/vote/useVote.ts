@@ -6,9 +6,7 @@ const useVote = () => {
 
   const firestore = useFirestore();
   const voteRef = firestore.collection('votes').doc(user.id);
-  const vote = useFirestoreDocData<Record<string, string>>(voteRef, {
-    idField: 'id',
-  });
+  const vote = useFirestoreDocData<Record<string, string>>(voteRef);
 
   const castVote = (position: string, candidate: string) => {
     voteRef.set({ [position]: candidate }, { merge: true });
