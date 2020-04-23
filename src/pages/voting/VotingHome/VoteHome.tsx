@@ -1,4 +1,5 @@
 import React from 'react';
+import InApp from 'detect-inapp';
 import Box from 'components/Box';
 import Centered from 'components/utils/Centered';
 import UnstyledLink from 'components/buttons/UnstyledLink';
@@ -13,10 +14,28 @@ const VotingHome = () => {
   const { user, isLoggedIn, isSignUpComplete } = useUser();
 
   const hasVoted = Object.keys(vote).length > 0;
+  const inapp = new InApp(navigator.userAgent || navigator.vendor);
+  const isInApp = inapp.isInApp;
 
   return (
     <Box>
       <Box mt={2} p={3} m="0 auto" maxWidth={600}>
+        {isInApp && (
+          <Box color="error">
+            <p>
+              We&apos;ve detected that you are in an app&apos;s built-in
+              browser.
+            </p>
+            <p>
+              Sign in with Google requires that you open your the website in a
+              real browser. Sign in with Facebook or email will still work.
+            </p>
+            <p>
+              You can click the menu button in the app header and select open in
+              Chrome or Safari to open the website in a real browser.
+            </p>
+          </Box>
+        )}
         {isLoggedIn && <p>Hey {user.name}!</p>}
         {hasVoted && (
           <Box color="success">

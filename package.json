@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@primer/octicons-react": "^9.6.0",
+    "detect-inapp": "^1.4.0",
     "firebase": "^7.13.1",
     "i18next": "^19.3.4",
     "react": "^16.13.1",
