@@ -1,11 +1,11 @@
 import styled, { StyledComponentProps } from 'styled-components/macro';
-import ReactTooltip, { Props as ReactTooltipProps } from 'react-tooltip';
+import ReactTooltip, { TooltipProps } from 'react-tooltip';
 import { variant } from 'styled-system';
 
 type StyledTooltipProp = StyledComponentProps<
   'div',
   any,
-  ReactTooltipProps & { variant: 'stayOnHover' },
+  TooltipProps & { variant: 'stayOnHover' },
   never
 >;
 const StyledTooltip = styled(ReactTooltip)<StyledTooltipProp>(
