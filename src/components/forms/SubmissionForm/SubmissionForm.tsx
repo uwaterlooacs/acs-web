@@ -131,18 +131,22 @@ const SubmissionForm: React.FC<SubmissionFormProps> = ({
         {!videoUrl ? (
           <>
             <p>
-              Upload a short video below explaining why you think you&apos;re a
-              good fit for the position.
+              Upload a short video (less than 2 minutes) below explaining why
+              you think you&apos;re a good fit for the position.
             </p>
             <p>
               When voting official opens, members will view your submission and
               cast their votes.
             </p>
+            <p>
+              Video must be .mp4 format. You can take it from your phone by
+              tapping below.
+            </p>
             <Box height={200}>
               <Uploader
                 error={showVideoUrlError}
                 storagePath={`W20/voting/videosubmissions/${position}`}
-                accept="video/*"
+                accept="video/mp4"
                 onUploadComplete={onVideoUploaded}
                 multiple={false}
               />
