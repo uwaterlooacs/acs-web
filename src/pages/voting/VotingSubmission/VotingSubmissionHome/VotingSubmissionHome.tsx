@@ -6,7 +6,7 @@ import { Select } from 'components/utils/input';
 import Button from 'components/buttons/Button';
 import UnstyledLink from 'components/buttons/UnstyledLink';
 import { useUser } from 'modules/users';
-import { POSITIONS_OPTIONS } from './constants';
+import { POSITIONS_OPTIONS } from '../../constants';
 
 const VotingSubmitHome = () => {
   const { user, isSignUpComplete } = useUser();

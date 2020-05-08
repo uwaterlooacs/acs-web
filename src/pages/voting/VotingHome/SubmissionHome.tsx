@@ -7,6 +7,7 @@ import UnstyledLink from 'components/buttons/UnstyledLink';
 import Centered from 'components/utils/Centered';
 import { useUser } from 'modules/users';
 import useSubmissions from 'modules/submissions';
+import { POSITIONS_OPTIONS } from '../constants';
 
 const SubmissionHome = () => {
   const { user, isLoggedIn, isSignUpComplete } = useUser();
@@ -38,69 +39,29 @@ const SubmissionHome = () => {
           We&apos;re currently accepting submission for the following positions:
         </p>
         <ul>
-          <li>
-            <Box
-              display="flex"
-              justifyContent="space-between"
-              alignItems="center"
-            >
-              <Box>
-                President{' '}
-                <span role="img" aria-label="crown">
-                  👑
-                </span>
+          {POSITIONS_OPTIONS.map(position => (
+            <li key={position.value}>
+              <Box
+                display="flex"
+                justifyContent="space-between"
+                alignItems="center"
+              >
+                <Box>
+                  {position.label}{' '}
+                  <span role="img" aria-label={position.ariaLabel}>
+                    {position.emoji}
+                  </span>
+                </Box>
+                {positionsSubmittedFor[position.value] && (
+                  <UnstyledLink to={`/voting/submission/${position.value}`}>
+                    <Box color="success" fontSize="XS" mr="L">
+                      <Octicon icon={Check} /> Submitted
+                    </Box>
+                  </UnstyledLink>
+                )}
               </Box>
-              {positionsSubmittedFor['president'] && (
-                <UnstyledLink to="/voting/submission/president">
-                  <Box color="success" fontSize="XS" mr="L">
-                    <Octicon icon={Check} /> Submitted
-                  </Box>
-                </UnstyledLink>
-              )}
-            </Box>
-          </li>
-          <li>
-            <Box
-              display="flex"
-              justifyContent="space-between"
-              alignItems="center"
-            >
-              <Box>
-                Vice-President{' '}
-                <span role="img" aria-label="sparkle">
-                  ✨
-                </span>
-              </Box>
-              {positionsSubmittedFor['vice-president'] && (
-                <UnstyledLink to="/voting/submission/vice-president">
-                  <Box color="success" fontSize="XS" mr="L">
-                    <Octicon icon={Check} /> Submitted
-                  </Box>
-                </UnstyledLink>
-              )}
-            </Box>
-          </li>
-          <li>
-            <Box
-              display="flex"
-              justifyContent="space-between"
-              alignItems="center"
-            >
-              <Box>
-                Secretary{' '}
-                <span role="img" aria-label="file cabinet">
-                  🗄
-                </span>
-              </Box>
-              {positionsSubmittedFor['secretary'] && (
-                <UnstyledLink to="/voting/submission/secretary">
-                  <Box color="success" fontSize="XS" mr="L">
-                    <Octicon icon={Check} /> Submitted
-                  </Box>
-                </UnstyledLink>
-              )}
-            </Box>
-          </li>
+            </li>
+          ))}
         </ul>
         {!isLoggedIn && (
           <p>

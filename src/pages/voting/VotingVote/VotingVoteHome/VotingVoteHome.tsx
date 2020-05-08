@@ -6,7 +6,7 @@ import Button from 'components/buttons/Button';
 import UnstyledLink from 'components/buttons/UnstyledLink';
 import useSubmissions from 'modules/submissions';
 import { useVote } from 'modules/vote';
-import { POSITIONS_OPTIONS } from './constants';
+import { POSITIONS_OPTIONS } from '../../constants';
 
 const VotingSubmissionPosition = () => {
   const { submissions } = useSubmissions();
