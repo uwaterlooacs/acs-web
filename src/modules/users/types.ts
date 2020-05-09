@@ -7,6 +7,10 @@ export type ExternalUserData = {
 export type InternalUserData = {
   studentNumber: number;
   faculty: string;
+  program: string;
+  from: string;
+  startYear: number;
+  startTerm: string;
   waterlooEmail: string;
 };
 

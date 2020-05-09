@@ -18,11 +18,10 @@ const useUser = () => {
   const userRef = firestore
     .collection(USER_COLLECTION)
     .doc(firebaseUser?.uid ?? 'notloggedin');
-
   const userDoc = useFirestoreDoc(userRef);
-  const isSignUpComplete = userDoc.exists;
-
   const user = useFirestoreDocData<User>(userRef, { idField: 'id' });
+
+  const isSignUpComplete = userDoc.exists && user.program;
   const setUser = async (modifiedUserData: Partial<InternalUserData>) => {
     if (!firebaseUser) {
       throw new Error(
