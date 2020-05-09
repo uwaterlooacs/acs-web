@@ -8,7 +8,7 @@ const VoteRoutes = () => {
   const { isLoggedIn } = useUser();
 
   if (!isLoggedIn) {
-    return <Redirect to="/vote" />;
+    return <Redirect to="/voting" />;
   }
 
   return (
