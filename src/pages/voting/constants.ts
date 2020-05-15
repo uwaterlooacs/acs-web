@@ -9,18 +9,23 @@ export const POSITIONS_OPTIONS = [
     ariaLabel: 'money bag',
   },
   {
+    value: 'public relations officer',
+    label: 'Public Relations Officer',
+    emoji: '📢',
+    ariaLabel: 'loudspeaker',
+  },
+  {
     value: 'publications officer',
     label: 'Publications Officer',
     emoji: '🎭',
     ariaLabel: 'performing arts',
   },
   {
-    value: 'public relations officer',
-    label: 'Public Relations Officer',
-    emoji: '📢',
-    ariaLabel: 'loudspeaker',
+    value: 'web administrator',
+    label: 'Web Administrator',
+    emoji: '💻',
+    ariaLabel: 'laptop',
   },
-  { value: 'web admin', label: 'Web Admin', emoji: '💻', ariaLabel: 'laptop' },
   {
     value: 'social coordinator',
     label: 'Social Coordinator',
