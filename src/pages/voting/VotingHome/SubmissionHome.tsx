@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Octicon, { Check } from '@primer/octicons-react';
 import Box from 'components/Box';
 import SignIn from 'components/SignIn';
@@ -82,6 +83,10 @@ const SubmissionHome = () => {
             </p>
           </>
         )}
+        <p>
+          Checkout out our <Link to="/voting/faq">faq</Link> for more
+          information.
+        </p>
       </Box>
       <Centered>
         <SignIn />
