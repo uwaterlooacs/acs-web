@@ -32,12 +32,12 @@ export const POSITIONS_OPTIONS = [
     emoji: '🎉',
     ariaLabel: 'tada',
   },
-  {
-    value: 'sports coordinator',
-    label: 'Sports Coordinator',
-    emoji: '⚽️',
-    ariaLabel: 'football',
-  },
+  // {
+  //   value: 'sports coordinator',
+  //   label: 'Sports Coordinator',
+  //   emoji: '⚽️',
+  //   ariaLabel: 'football',
+  // },
   {
     value: 'education coordinator',
     label: 'Education Coordinator',
