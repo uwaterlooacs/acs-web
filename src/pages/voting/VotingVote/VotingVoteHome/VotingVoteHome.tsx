@@ -20,6 +20,21 @@ const VotingSubmissionPosition = () => {
     ),
   }));
 
+  const castVoteWithMultiple = (position: string, candidate: string) => {
+    if (position === 'social coordinator') {
+      if (vote['social coordinator 1'] === undefined) {
+        castVote('social coordinator 1', candidate);
+      } else if (vote['social coordinator 2'] === undefined) {
+        castVote('social coordinator 2', candidate);
+      } else {
+        castVote('social coordinator 2', vote['social coordinator 1']);
+        castVote('social coordinator 1', candidate);
+      }
+    } else {
+      castVote(position, candidate);
+    }
+  };
+
   return (
     <Box mt="S" p="M" m="0 auto" maxWidth={600}>
       {submissionGroups.map(
@@ -31,16 +46,31 @@ const VotingSubmissionPosition = () => {
                 Here are the candidates for the position of{' '}
                 {groupedSubmission.position}.
               </p>
-              {groupedSubmission.submissions.map(submission => (
-                <Submission
-                  key={submission.id}
-                  submission={submission}
-                  castVote={() =>
-                    castVote(submission.position, submission.candidate)
-                  }
-                  votedFor={vote[submission.position] === submission.candidate}
-                />
-              ))}
+              {groupedSubmission.position === 'social coordinator' && (
+                <p>
+                  <strong>Please vote for two social coordinators.</strong>
+                </p>
+              )}
+              {groupedSubmission.submissions.map(submission => {
+                const votedFor =
+                  submission.position === 'social coordinator'
+                    ? vote['social coordinator 1'] === submission.candidate ||
+                      vote['social coordinator 2'] === submission.candidate
+                    : vote[submission.position] === submission.candidate;
+                return (
+                  <Submission
+                    key={submission.id}
+                    submission={submission}
+                    castVote={() =>
+                      castVoteWithMultiple(
+                        submission.position,
+                        submission.candidate,
+                      )
+                    }
+                    votedFor={votedFor}
+                  />
+                );
+              })}
               {vote[groupedSubmission.position] && (
                 <Box color="success">
                   <p>
