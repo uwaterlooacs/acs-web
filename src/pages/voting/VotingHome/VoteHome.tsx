@@ -46,27 +46,34 @@ const VotingHome = () => {
         )}
         <p>We&apos;re currently accepting votes for the following positions:</p>
         <ul>
-          {POSITIONS_OPTIONS.map(position => (
-            <li key={position.value}>
-              <Box
-                display="flex"
-                justifyContent="space-between"
-                alignItems="center"
-              >
-                <Box>
-                  {position.label}{' '}
-                  <span role="img" aria-label={position.ariaLabel}>
-                    {position.emoji}
-                  </span>
-                </Box>
-                {vote[position.value] && (
-                  <Box color="success" fontSize="XS" mr="L">
-                    <Octicon icon={Check} /> Submitted
+          {POSITIONS_OPTIONS.map(position => {
+            const submitted =
+              position.value === 'social coordinator'
+                ? vote['social coordinator 1'] !== undefined ||
+                  vote['social coordinator 2'] !== undefined
+                : vote[position.value] !== undefined;
+            return (
+              <li key={position.value}>
+                <Box
+                  display="flex"
+                  justifyContent="space-between"
+                  alignItems="center"
+                >
+                  <Box>
+                    {position.label}{' '}
+                    <span role="img" aria-label={position.ariaLabel}>
+                      {position.emoji}
+                    </span>
                   </Box>
-                )}
-              </Box>
-            </li>
-          ))}
+                  {submitted && (
+                    <Box color="success" fontSize="XS" mr="L">
+                      <Octicon icon={Check} /> Submitted
+                    </Box>
+                  )}
+                </Box>
+              </li>
+            );
+          })}
         </ul>
         {!isLoggedIn && <p>Sign up or sign in below to vote.</p>}
         {isLoggedIn && <p>Click the button below to vote.</p>}
