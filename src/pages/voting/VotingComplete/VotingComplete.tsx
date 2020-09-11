@@ -1,6 +1,7 @@
 import React from 'react';
 import Box from 'components/Box';
 import { useUser } from 'modules/users';
+import { POSITIONS_OPTIONS } from '../constants';
 
 const VotingComplete = () => {
   const { user, isLoggedIn } = useUser();
@@ -11,39 +12,32 @@ const VotingComplete = () => {
         <p>Voting is complete and the results have been verified.</p>
         <p>Below are the elected members for each positon.</p>
         <ul>
-          <li>
-            <Box>
-              <p>President:</p>
-              <p>
-                <strong>Danicia Solozano</strong>{' '}
-                <span role="img" aria-label="crown">
-                  👑
-                </span>
-              </p>
-            </Box>
-          </li>
-          <li>
-            <Box>
-              <p>Vice-President</p>
-              <p>
-                <strong>Shiyan Cato</strong>{' '}
-                <span role="img" aria-label="sparkle">
-                  ✨
-                </span>
-              </p>
-            </Box>
-          </li>
-          <li>
-            <Box>
-              <p>Secretary:</p>
-              <p>
-                <strong>Shania Scotland</strong>{' '}
-                <span role="img" aria-label="file cabinet">
-                  🗄
-                </span>
-              </p>
-            </Box>
-          </li>
+          {POSITIONS_OPTIONS.map(position => {
+            return (
+              <li key={position.value}>
+                <Box
+                  display="flex"
+                  justifyContent="space-between"
+                  alignItems="center"
+                >
+                  <Box>
+                    <p>
+                      {position.value === 'social coordinator'
+                        ? 'Social Coordinators'
+                        : position.label}
+                      :
+                    </p>
+                    <p>
+                      <strong>{position.winner}</strong>{' '}
+                      <span role="img" aria-label={position.ariaLabel}>
+                        {position.emoji}
+                      </span>
+                    </p>
+                  </Box>
+                </Box>
+              </li>
+            );
+          })}
         </ul>
         <p>
           Congratulations to our new exec members!{' '}
